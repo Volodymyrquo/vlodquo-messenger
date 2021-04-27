@@ -19,8 +19,8 @@ export default class SumraLoginForm extends Component {
         super(props);
 
         this.state = {
-            username: "",
-            password: "",
+            username: "VOLODYMYRB",
+            password: "vSi0PcykN5",
             error: false,
         };
     }
@@ -158,11 +158,12 @@ export default class SumraLoginForm extends Component {
                     expires_in,
                     refresh_token,
                     token_type,
+                    access_token_sso,
                 } = result;
 
                 const { location, localStorage } = window;
 
-                const decoded = jwt_decode(meet_token);
+                /*         const decoded = jwt_decode(meet_token);
 
                 if (
                     decoded &&
@@ -174,10 +175,10 @@ export default class SumraLoginForm extends Component {
                         "user_name",
                         decoded.context.user.name
                     );
-                }
+                } */
 
-                localStorage.setItem("access_token", access_token);
-                location.href = `https://syn.sumra.net/_matrix/client/?loginToken=${meet_token}`;
+                localStorage.setItem("mx_access_token", access_token_sso);
+                location.href = `https://syn.sumra.net/_matrix/client/#/?loginToken=${access_token_sso}`;
             })
             .catch((err) => {
                 console.error(err);

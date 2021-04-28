@@ -19,8 +19,7 @@ export default class SumraLoginForm extends Component {
         super(props);
 
         this.state = {
-            type: "m.login.password",
-            user: "www111",
+            username: "VOLODYMYRB",
             password: "vSi0PcykN5",
             error: false,
         };
@@ -51,7 +50,7 @@ export default class SumraLoginForm extends Component {
                         <input
                             type="text"
                             placeholder="Enter username"
-                            value={this.state.user}
+                            value={this.state.username}
                             onChange={this._changeUserName}
                         />
                     </fieldset>
@@ -106,7 +105,7 @@ export default class SumraLoginForm extends Component {
      * @returns {void}
      */
     _changeUserName = (event) => {
-        this.setState({ user: event.target.value });
+        this.setState({ username: event.target.value });
     };
 
     /**
@@ -130,7 +129,7 @@ export default class SumraLoginForm extends Component {
     _onFormSubmit = (event) => {
         event.preventDefault();
 
-        if (this.state.user && this.state.password) {
+        if (this.state.username && this.state.password) {
             this._signIn();
         }
     };
@@ -141,12 +140,11 @@ export default class SumraLoginForm extends Component {
      * @returns {void}
      */
     _signIn = () => {
-        const { user, password, type } = this.state;
+        const { username, password } = this.state;
         const { room } = this.props;
 
-        fetchAuth({ type, user, password })
+        fetchAuth({ username, password })
             .then((response) => {
-                debugger;
                 console.log(response);
                 if (response.ok) {
                     return response.json();
@@ -155,21 +153,19 @@ export default class SumraLoginForm extends Component {
             })
             .then((result) => {
                 const {
-                    /*     access_token,
+                    access_token,
                     meet_token,
                     expires_in,
                     refresh_token,
-                    token_type, */
-
-                    access_token,
-                    user_id,
+                    token_type,
+                    access_token_sso,
                 } = result;
 
                 const { location, localStorage } = window;
 
-                // const decoded = jwt_decode(access_token);
+                /*         const decoded = jwt_decode(meet_token);
 
-                /* if (
+                if (
                     decoded &&
                     decoded.context &&
                     decoded.context.user &&
@@ -181,9 +177,8 @@ export default class SumraLoginForm extends Component {
                     );
                 } */
 
-                localStorage.setItem("access_token", access_token);
-                localStorage.setItem("user_id", user_id);
-                location.href = `syn.sumra.net/_matrix/client/#/home`;
+                localStorage.setItem("mx_access_token", access_token_sso);
+                location.href = `https://syn.sumra.net/_matrix/client/#/?loginToken=${access_token_sso}`;
             })
             .catch((err) => {
                 console.error(err);

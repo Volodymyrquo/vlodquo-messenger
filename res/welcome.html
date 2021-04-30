@@ -1,200 +1,453 @@
 <style type="text/css">
-
-/* we deliberately inline style here to avoid flash-of-CSS problems, and to avoid
+    /* we deliberately inline style here to avoid flash-of-CSS problems, and to avoid
  * voodoo where we have to set display: none by default
  */
 
-h1::after {
-    content: "!";
-}
+    /** Variables */
+    /** Styles */
+    button {
+        padding: 0;
+        border: none;
+        font: inherit;
+        color: inherit;
+        background-color: transparent;
+    }
 
-.mx_Parent {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
-    padding: 25px 35px;
-    color: #2e2f32;
-}
-
-.mx_Logo {
-    height: 54px;
-    margin-top: 2px;
-}
-
-.mx_ButtonGroup {
-    margin-top: 10px;
-}
-
-.mx_ButtonRow {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    margin: 12px 0 0;
-}
-
-.mx_ButtonRow > * {
-    margin: 0 10px;
-}
-
-.mx_ButtonRow > *:first-child {
-    margin-left: 0;
-}
-
-.mx_ButtonRow > *:last-child {
-    margin-right: 0;
-}
-
-.mx_ButtonParent {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 10px 20px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-radius: 4px;
-    width: 150px;
-    background-repeat: no-repeat;
-    background-position: 10px center;
-    text-decoration: none;
-    color: #2e2f32 !important;
-}
-
-.mx_ButtonLabel {
-    margin-left: 20px;
-}
-
-.mx_Header_title {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 20px 0 0;
-}
-
-.mx_Header_subtitle {
-    font-size: 12px;
-    font-weight: normal;
-    margin: 8px 0 0;
-}
-
-.mx_ButtonSignIn {
-    background-color: #368BD6;
-    color: white !important;
-}
-
-.mx_ButtonCreateAccount {
-    background-color: #0DBD8B;
-    color: white !important;
-}
-
-.mx_SecondaryButton {
-    background-color: #FFFFFF;
-    color: #2E2F32;
-}
-
-.mx_Button_iconSignIn {
-    background-image: url('welcome/images/icon-sign-in.svg');
-}
-.mx_Button_iconCreateAccount {
-    background-image: url('welcome/images/icon-create-account.svg');
-}
-.mx_Button_iconHelp {
-    background-image: url('welcome/images/icon-help.svg');
-}
-.mx_Button_iconRoomDirectory {
-    background-image: url('welcome/images/icon-room-directory.svg');
-}
-
-/*
-.mx_WelcomePage_loggedIn is applied by EmbeddedPage from the Welcome component
-If it is set on the page, we should show the buttons. Otherwise, we have to assume
-we don't have an account and should hide them. No account == no guest account either.
- */
-.mx_WelcomePage:not(.mx_WelcomePage_loggedIn) .mx_WelcomePage_guestFunctions {
-    display: none;
-}
-
-.mx_ButtonRow.mx_WelcomePage_guestFunctions {
-    margin-top: 20px;
-}
-.mx_ButtonRow.mx_WelcomePage_guestFunctions > div {
-    margin: 0 auto;
-}
-
-@media only screen and (max-width: 480px) {
-    .mx_ButtonRow {
+    .authentification-form {
+        max-width: 340px;
+        margin: auto;
+    }
+    .authentification-form.login-form form,
+    .authentification-form.user-signup-form form,
+    .authentification-form.verification-code-form form {
+        margin-top: 60px;
+    }
+    .authentification-form.login-form .sumra-input-fieldset,
+    .authentification-form.user-signup-form .sumra-input-fieldset,
+    .authentification-form.verification-code-form .sumra-input-fieldset {
+        margin-top: 34px;
+    }
+    .authentification-form.login-form .sumra-Button,
+    .authentification-form.user-signup-form .sumra-Button,
+    .authentification-form.verification-code-form .sumra-Button {
+        margin-top: 30px;
+    }
+    .authentification-form.verification-code-form .sumra-react-code-input {
+        margin-top: 30px;
+    }
+    .sumra-social-links {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+        padding-top: 12px;
+        margin: 0;
+    }
+    .sumra-social-links li {
+        display: inline-block;
+    }
+    .sumra-header {
+        z-index: 1;
+        position: relative;
+        height: 64px;
+        background: #fff;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+    .sumra-header .logotype {
+        position: relative;
+    }
+    .sumra-header .logotype:before,
+    .sumra-header .logotype:after {
+        content: "";
+        display: table;
+        clear: both;
+        width: 161px;
+        height: 46px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .sumra-header .logotype:before {
+        background-image: url("./images/sumra/Sumra_Chat_Logo.svg");
+    }
+    .sumra-header .logotype:after {
+        display: none;
+        background-image: url("./images/sumra/Sumra_Chat_Logo_hover.svg");
+    }
+    .sumra-header .logotype:hover {
+        cursor: pointer;
+    }
+    .sumra-header .logotype:hover:before {
+        display: none;
+    }
+    .sumra-header .logotype:hover:after {
+        display: table;
+    }
+    .sumra-main {
+        min-height: calc(100vh - 64px - 153px);
+        background-color: #fff;
+        background-image: url("./images/sumra/pattern.svg");
+    }
+    .sumra-main .h1-title,
+    .sumra-main .h2-subtitle,
+    .sumra-main .h2-label {
+        font-family: "SF UI Display";
+        font-style: normal;
+        line-height: 100%;
+        text-align: center;
+        color: #202020;
+    }
+    .sumra-main .h1-title {
+        padding-top: 45px;
+        font-weight: bold;
+        font-size: 30px;
+        white-space: nowrap;
+    }
+    .sumra-main .h2-subtitle {
+        margin: 20px 0;
+        font-weight: 500;
+        font-size: 22px;
+    }
+    .sumra-main .h2-label {
+        font-size: 18px;
+        line-height: 100%;
+    }
+    .sumra-main .h3-label {
+        font-family: "SF UI Display";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        color: #373737;
+    }
+    .sumra-footer {
+        height: 153px;
+        background: #111;
+    }
+    .sumra-line {
+        width: 100%;
+        height: 45px;
+        background-image: url("./images/sumra/Line.svg");
+        background-repeat: no-repeat;
+        background-position-y: center;
+    }
+    .sumra-phone-fieldset {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 54px;
+        margin-top: 12px;
+        padding-bottom: 4px;
+        background: #fff;
+        border: 2px solid #dbdbdb;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    .sumra-phone-fieldset legend {
+        margin-left: 15px;
+        padding: 0 5px;
+        font-family: "SF UI Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 1px;
+        color: #8b8b8b;
+    }
+    .sumra-phone-fieldset .PhoneInput {
+        margin-left: 16px;
+    }
+    .sumra-phone-fieldset .PhoneInput .PhoneInputInput {
+        outline: 0;
+        border: 0;
+        height: 19px;
+        font-family: "SF UI Display";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #202020;
+    }
+    .sumra-phone-fieldset .PhoneInput .PhoneInputInput::placeholder {
+        color: #8b8b8b;
+    }
+    .sumra-phone-fieldset .sumra-phone-send {
+        margin-right: 18px;
+        width: 16px;
+        height: 16px;
+    }
+    .sumra-phone-fieldset .sumra-phone-send img {
+        width: 16px;
+    }
+    .sumra-input-fieldset {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 54px;
+        margin-top: 12px;
+        padding-bottom: 4px;
+        background: #fff;
+        border: 2px solid #dbdbdb;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    .sumra-input-fieldset.available {
+        border: 2px solid #f8913a;
+    }
+    .sumra-input-fieldset legend {
+        margin-left: 15px;
+        padding: 0 5px;
+        font-family: "SF UI Display";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 1px;
+        color: #8b8b8b;
+    }
+    .sumra-input-fieldset input {
+        flex-grow: 1;
+        outline: 0;
+        border: 0;
+        height: 19px;
+        font-family: "SF UI Display";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #202020;
+    }
+    .sumra-input-fieldset input::placeholder {
+        font-family: "SF UI Text";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        color: #8b8b8b;
+    }
+    .sumra-input-fieldset-icon {
+        margin-left: 15px;
+        margin-right: 8px;
+    }
+    .sumra-input-fieldset-icon-right {
+        margin-right: 16px;
+    }
+    .sumra-input-message {
+        margin-left: 10px;
+        margin-top: 9px;
+    }
+    .sumra-input-message.error {
+        color: #e1604d;
+    }
+    .sumra-input-message.success {
+        color: #419681;
+    }
+    .sumra-Button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        color: #fff;
+        background: linear-gradient(219.49deg, #f89949 24.58%, #f5872a 64.12%),
+            #f8913a;
+        border-radius: 8px;
+        filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.07));
+    }
+    .sumra-Button:hover {
+        cursor: pointer;
+    }
+    .sumra-Button img {
+        position: relative;
+        left: -36px;
+    }
+    .sumra-Button img.sumra-Button-icon-left {
+        position: absolute;
+        left: 28px;
+    }
+    .sumra-Button span {
+        font-family: "SF UI Text";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    .sumra-Benefits {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        margin-top: 40px;
+        padding: 15px 20px;
+        border: 2px dashed #eee;
+        border-radius: 8px;
     }
-
-    .mx_ButtonRow > * {
-        margin: 0 0 10px 0;
+    .sumra-Benefits .sumra-Benefit-text:before {
+        content: "";
+        display: table;
+        clear: both;
+        width: 12px;
+        height: 9px;
+        background-image: url("./images/sumra/Vector.svg");
+        background-size: cover;
+        background-position: center;
     }
-}
-
+    .sumra-Benefits-draft {
+        width: 340px;
+        height: 106px;
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+    .sumra-link-forgotPassword,
+    .sumra-link-createUser {
+        margin-top: 25px;
+        font-family: "SF UI Display";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 100%;
+    }
+    .sumra-link-forgotPassword {
+        float: left;
+        color: #f8913a;
+        cursor: pointer;
+    }
+    .sumra-link-createUser {
+        float: right;
+        color: #4d505f;
+    }
+    .sumra-link-createUser span {
+        margin-left: 4px;
+        color: #f8913a;
+        cursor: pointer;
+    }
+    .sumra-react-code-input {
+        width: 100% !important;
+    }
+    .sumra-react-code-input > div[class^="styles_react-code-input"] {
+        display: flex;
+        justify-content: space-between;
+    }
+    .sumra-react-code-input > div[class^="styles_react-code-input"] input {
+        border: 2px solid #dbdbdb;
+    }
+    .sumra-react-code-input
+        > div[class^="styles_react-code-input"]
+        input:focus {
+        border: 2px solid #f8913a;
+    }
+    .sumra-react-code-input
+        > div[class^="styles_react-code-input"]
+        input:first-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .sumra-react-code-input
+        > div[class^="styles_react-code-input"]
+        input:last-child {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
 </style>
 
-<div class="mx_Parent">
+<div class="sumra-main">
+    <h1 class="h1-title">Welcome to Sumra Chat</h1>
+    <h2 class="h2-subtitle">Please Login or Sign Up</h2>
+    <section>
+        <h3 class="h3-label">Sign up with:</h3>
+
+        <ul class="sumra-social-links">
+            {links}
+        </ul>
+    </section>
+    <div class="sumra-line"></div>
+    <section>
+        <h3 class="h3-label">Sign up with:</h3>
+        <form>
+            <fieldset class="sumra-phone-fieldset">
+                <legend>Your mobile phone number</legend>
+
+                <PhoneInput
+                    flags="{flags}"
+                    placeholder="Enter phone number"
+                    value="{this.state.phone}"
+                    onChange="{this._changePhoneNumber}"
+                />
+
+                <div
+                    class="sumra-phone-send"
+                    onClick="{this._submitPhoneNumber}"
+                >
+                    <img src="{send}" />
+                </div>
+            </fieldset>
+        </form>
+    </section>
+    <div class="sumra-line"></div>
+    <div class="sumra-Button" onClick="{this._goToLoginPage}">
+        <img src="{user}" width="14" height="17" />
+        <span>Login with Sumra ID</span>
+    </div>
+
+    {/*
+    <section class="sumra-Benefits">
+        <div class="sumra-Benefit-text">
+            <b>Earn Unlimited</b> DIVITS for your time and activities on
+            <b>Sumra Chat</b>
+        </div>
+        <div class="sumra-Benefit-text"><b>Exchange & Redeem</b> DIVITS.</div>
+    </section>
+    */}
+    <img class="sumra-Benefits-draft" src="{benefits}" />
+</div>
+
+<!-- <div class="mx_Parent">
     <a href="https://element.io" target="_blank" rel="noopener">
-        <img src="welcome/images/logo.svg" alt="" class="mx_Logo"/>
+        <img src="welcome/images/logo.svg" alt="" class="mx_Logo" />
     </a>
-    <h1 class="mx_Header_title">_t("Welcome to Element")</h1>
-    <h4 class="mx_Header_subtitle">_t("Decentralised, encrypted chat &amp; collaboration powered by [matrix]")</h4>
+    <h1 class="mx_Header_title">_t("Welcome to Sumra Chat")</h1>
+    <h4 class="mx_Header_subtitle">
+        _t("Decentralised, encrypted chat &amp; collaboration powered by
+        [matrix]")
+    </h4>
     <div class="mx_ButtonGroup">
         <div class="mx_ButtonRow">
-            <a href="#/login" class="mx_ButtonParent mx_ButtonSignIn mx_Button_iconSignIn">
+            <a
+                href="#/login"
+                class="mx_ButtonParent mx_ButtonSignIn mx_Button_iconSignIn"
+            >
                 <div class="mx_ButtonLabel">_t("Sign In")</div>
             </a>
-            <a href="#/register" class="mx_ButtonParent mx_ButtonCreateAccount mx_Button_iconCreateAccount">
+            <a
+                href="#/register"
+                class="mx_ButtonParent mx_ButtonCreateAccount mx_Button_iconCreateAccount"
+            >
                 <div class="mx_ButtonLabel">_t("Create Account")</div>
             </a>
         </div>
-        <!-- The comments below are meant to be used by Ansible as a quick way
+ -->
+<!-- The comments below are meant to be used by Ansible as a quick way
              to strip out the marked content when desired.
              See https://github.com/vector-im/element-web/issues/8622.
              TODO: Strip out these comments and rely on the guest flag -->
-        <!-- BEGIN Ansible: Remove these lines when guest access is disabled -->
-        <div class="mx_ButtonRow mx_WelcomePage_guestFunctions">
+<!-- BEGIN Ansible: Remove these lines when guest access is disabled -->
+<!--         <div class="mx_ButtonRow mx_WelcomePage_guestFunctions">
             <div>
-                <a href="#/directory" class="mx_ButtonParent mx_SecondaryButton mx_Button_iconRoomDirectory">
+                <a
+                    href="#/directory"
+                    class="mx_ButtonParent mx_SecondaryButton mx_Button_iconRoomDirectory"
+                >
                     <div class="mx_ButtonLabel">_t("Explore rooms")</div>
                 </a>
             </div>
         </div>
-        <!-- END Ansible: Remove these lines when guest access is disabled -->
-    </div>
+ -->
+<!-- END Ansible: Remove these lines when guest access is disabled -->
+<!--     </div>
 </div>
+ -->

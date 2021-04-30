@@ -3,6 +3,8 @@ import SumraFirstForm from "./components/SumraFirstForm";
 import SumraConfirmCodeForm from "./components/SumraConfirmCodeForm";
 import SumraUserCreateForm from "./components/SumraUserCreateForm";
 import SumraLoginForm from "./components/SumraLoginForm";
+import * as sdk from "matrix-react-sdk/src/index";
+
 import "./SumraAuthPage.css";
 
 /**
@@ -24,6 +26,8 @@ export default class SumraAuthPage extends Component {
             currentStep: 1,
             verificationCode: "",
             room: "",
+            username: "",
+            password: "",
         };
     }
 
@@ -40,8 +44,12 @@ export default class SumraAuthPage extends Component {
      * Render
      */
     render() {
+        const LoginComponent = sdk.getComponent("auth.PasswordLogin");
+
         const { className } = this.props;
+        const loginForm = className + " login-form";
         const { room } = this.state;
+        const children = this.props.children;
         const getForm = () => {
             switch (this.state.currentStep) {
                 case 1:
@@ -57,6 +65,7 @@ export default class SumraAuthPage extends Component {
                             className={className}
                             onStep={this._goToStep}
                             onSetCode={this._onSetVerificationCode}
+                            setStateLogin={this._setStateLoginPage}
                         />
                     );
                 case 3:
@@ -64,15 +73,19 @@ export default class SumraAuthPage extends Component {
                         <SumraUserCreateForm
                             className={className}
                             state={this.state}
+                            onStep={this._goToStep}
                         />
                     );
                 case 4:
                     return (
-                        <SumraLoginForm
+                        <div>{this.props.children}</div>
+
+                        /*  <SumraLoginForm
                             className={className}
                             onStep={this._goToStep}
                             room={room}
-                        />
+                           
+                        /> */
                     );
                 default:
                     console.error("[Sumra Auth Page] Something wrong!");
@@ -105,5 +118,9 @@ export default class SumraAuthPage extends Component {
      */
     _onSetVerificationCode = (code) => {
         this.setState({ verificationCode: code.toUpperCase() });
+    };
+
+    _setStateLoginPage = (username, password) => {
+        this.setState({ username, password });
     };
 }

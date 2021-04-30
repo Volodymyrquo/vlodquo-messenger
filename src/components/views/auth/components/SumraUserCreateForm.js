@@ -28,6 +28,7 @@ export default class SumraUserCreateForm extends Component {
 
             username: "",
             invalidUserName: false,
+            password: "",
         };
 
         this.timerID = null;
@@ -171,8 +172,15 @@ export default class SumraUserCreateForm extends Component {
         if (response.ok) {
             console.log(response);
             const json = await response.json();
-            alert(json);
+            alert("your password is: " + json.password);
             console.log(json);
+            this.setState({ password: this.state.password });
+            localStorage.setItem("password", json.password);
         }
     };
+
+    /*     _redirectLogin = (username = "", password = "") => {
+        this.props.setStateLogin(username, password);
+        this.props.onStep(4);
+    }; */
 }

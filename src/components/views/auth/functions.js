@@ -9,6 +9,14 @@ export const END_POINTS = {
     AUTHENTIFICATION: "auth/v1/chat/authenticate",
 };
 
+/* export const END_POINTS = {
+    SERVER: "https://d4daab16bedc.ngrok.io/",
+    SEND_CODE: "send-code",
+    VALIDATE: "validate",
+    REGISTRATION: "registration",
+    AUTHENTIFICATION: "chat/authenticate",
+}; */
+
 /**
  * makeId.
  */

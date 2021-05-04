@@ -1,4 +1,4 @@
-<style type="text/css">
+ad<style type="text/css">
     /* we deliberately inline style here to avoid flash-of-CSS problems, and to avoid
  * voodoo where we have to set display: none by default
  */
@@ -71,11 +71,11 @@
         background-size: cover;
     }
     .sumra-header .logotype:before {
-        background-image: url("./images/sumra/Sumra_Chat_Logo.svg");
+        background-image: url("./vector-icons/Sumra_Chat_Logo.svg");
     }
     .sumra-header .logotype:after {
         display: none;
-        background-image: url("./images/sumra/Sumra_Chat_Logo_hover.svg");
+        background-image: url("./vector-icons/Sumra_Chat_Logo_hover.svg");
     }
     .sumra-header .logotype:hover {
         cursor: pointer;
@@ -89,7 +89,7 @@
     .sumra-main {
         min-height: calc(100vh - 64px - 153px);
         background-color: #fff;
-        background-image: url("./images/sumra/pattern.svg");
+        background-image: url("./vector-icons/pattern.svg");
     }
     .sumra-main .h1-title,
     .sumra-main .h2-subtitle,
@@ -130,7 +130,7 @@
     .sumra-line {
         width: 100%;
         height: 45px;
-        background-image: url("./images/sumra/Line.svg");
+        background-image: url("./vector-icons/Line.svg");
         background-repeat: no-repeat;
         background-position-y: center;
     }
@@ -293,7 +293,7 @@
         clear: both;
         width: 12px;
         height: 9px;
-        background-image: url("./images/sumra/Vector.svg");
+        background-image: url("./vector-icons/Vector.svg");
         background-size: cover;
         background-position: center;
     }
@@ -362,7 +362,27 @@
         <h3 class="h3-label">Sign up with:</h3>
 
         <ul class="sumra-social-links">
-            {links}
+            <li onClick={this._goToVeryfycationCodePage}>
+                <a href='tg://resolve?domain=SumraBot' target="_blank" rel="noreferrer">
+                    <img src='./vector-icons/Telegram.svg' width="46" alt="Telegram" />
+                </a>
+            </li><li onClick={this._goToVeryfycationCodePage}>
+                <a href='viber://pa?ChatURI=SumraBot' target="_blank" rel="noreferrer">
+                    <img src='./vector-icons/Viber.svg' width="46" alt="Viber" />
+                </a>
+            </li><li onClick={this._goToVeryfycationCodePage}>
+                <a href='https://m.me/SumraBot' target="_blank" rel="noreferrer">
+                    <img src='./vector-icons/Messanger.svg' width="46" alt="Messanger" />
+                </a>
+            </li><li onClick={this._goToVeryfycationCodePage}>
+                <a href='https://wa.me/SumraBot' target="_blank" rel="noreferrer">
+                    <img src='./vector-icons/WhatsApp.svg' width="46" alt="WhatsApp" />
+                </a>
+            </li><li onClick={this._goToVeryfycationCodePage}>
+                <a href='#' target="_blank" rel="noreferrer">
+                    <img src='./vector-icons/Signal.svg' width="46" alt="Signal" />
+                </a>
+            </li>
         </ul>
     </section>
     <div class="sumra-line"></div>
@@ -383,71 +403,27 @@
                     class="sumra-phone-send"
                     onClick="{this._submitPhoneNumber}"
                 >
-                    <img src="{send}" />
+                    <img src="./vector-icons/send.svg" />
                 </div>
             </fieldset>
         </form>
     </section>
     <div class="sumra-line"></div>
-    <div class="sumra-Button" onClick="{this._goToLoginPage}">
-        <img src="{user}" width="14" height="17" />
-        <span>Login with Sumra ID</span>
-    </div>
 
-    {/*
-    <section class="sumra-Benefits">
+    <a class="sumra-Button" href='/#/login' ">
+        <img src="./vector-icons/user.svg" width="14" height="17" />
+        <span style="color: #eee;">Login with Sumra ID</span>
+    </a>
+
+  
+<!--     <section class="sumra-Benefits">
         <div class="sumra-Benefit-text">
             <b>Earn Unlimited</b> DIVITS for your time and activities on
             <b>Sumra Chat</b>
         </div>
         <div class="sumra-Benefit-text"><b>Exchange & Redeem</b> DIVITS.</div>
-    </section>
-    */}
-    <img class="sumra-Benefits-draft" src="{benefits}" />
+    </section>  -->
+
+    <img class="sumra-Benefits-draft" src="./vector-icons/Benefits_draft.svg" />
 </div>
 
-<!-- <div class="mx_Parent">
-    <a href="https://element.io" target="_blank" rel="noopener">
-        <img src="welcome/images/logo.svg" alt="" class="mx_Logo" />
-    </a>
-    <h1 class="mx_Header_title">_t("Welcome to Sumra Chat")</h1>
-    <h4 class="mx_Header_subtitle">
-        _t("Decentralised, encrypted chat &amp; collaboration powered by
-        [matrix]")
-    </h4>
-    <div class="mx_ButtonGroup">
-        <div class="mx_ButtonRow">
-            <a
-                href="#/login"
-                class="mx_ButtonParent mx_ButtonSignIn mx_Button_iconSignIn"
-            >
-                <div class="mx_ButtonLabel">_t("Sign In")</div>
-            </a>
-            <a
-                href="#/register"
-                class="mx_ButtonParent mx_ButtonCreateAccount mx_Button_iconCreateAccount"
-            >
-                <div class="mx_ButtonLabel">_t("Create Account")</div>
-            </a>
-        </div>
- -->
-<!-- The comments below are meant to be used by Ansible as a quick way
-             to strip out the marked content when desired.
-             See https://github.com/vector-im/element-web/issues/8622.
-             TODO: Strip out these comments and rely on the guest flag -->
-<!-- BEGIN Ansible: Remove these lines when guest access is disabled -->
-<!--         <div class="mx_ButtonRow mx_WelcomePage_guestFunctions">
-            <div>
-                <a
-                    href="#/directory"
-                    class="mx_ButtonParent mx_SecondaryButton mx_Button_iconRoomDirectory"
-                >
-                    <div class="mx_ButtonLabel">_t("Explore rooms")</div>
-                </a>
-            </div>
-        </div>
- -->
-<!-- END Ansible: Remove these lines when guest access is disabled -->
-<!--     </div>
-</div>
- -->

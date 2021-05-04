@@ -1,5 +1,5 @@
 /*
-Copyright 2019, 2020 New Vector Ltd
+Copyright 2019 New Vector Ltd
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,20 +15,11 @@ limitations under the License.
 */
 
 import React from "react";
-import "./SumraAuthPage.css";
 
-export default class SumraAuthPage extends React.PureComponent {
-    static replaces = "AuthPage";
+export default class AuthBody extends React.PureComponent {
+    static replaces = "AuthBody";
 
-    // cache the url as a static to prevent it changing without refreshing
     render() {
-        return (
-            <>
-                <header className="sumra-header">
-                    <div className="logotype"></div>
-                </header>
-                <div className="sumra-main">{this.props.children}</div>
-            </>
-        );
+        return <div className="login-form">{this.props.children}</div>;
     }
 }

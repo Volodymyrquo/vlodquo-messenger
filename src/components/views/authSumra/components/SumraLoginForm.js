@@ -11,6 +11,7 @@ import person from "../../../../../res/images/sumra/icon-person.svg";
  * @extends Component
  */
 export default class SumraLoginForm extends Component {
+    static replaces = "LoginComponent";
     /**
      * constructor
      */

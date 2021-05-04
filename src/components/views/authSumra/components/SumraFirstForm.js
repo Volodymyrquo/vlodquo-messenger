@@ -8,6 +8,7 @@ import { socialLinks } from "../socialLinks";
 import send from "../../../../../res/images/sumra/send.svg";
 import user from "../../../../../res/images/sumra/user.svg";
 import benefits from "../../../../../res/images/sumra/Benefits_draft.svg";
+import WelcomeAuthPage from "../WelcomeAuthPage";
 
 /**
  * Sumra: First form
@@ -15,6 +16,8 @@ import benefits from "../../../../../res/images/sumra/Benefits_draft.svg";
  * @extends Component
  */
 export default class SumraFirstForm extends Component {
+    s;
+
     /**
      * Initializes a new {@code FirstForm} instance.
      *
@@ -60,7 +63,7 @@ export default class SumraFirstForm extends Component {
         });
 
         return (
-            <div className={className}>
+            <WelcomeAuthPage>
                 <h1 className="h1-title">Wellcome to Sumra Chat</h1>
                 <h2 className="h2-subtitle">Please Login or Sign Up</h2>
                 <section>
@@ -106,7 +109,7 @@ export default class SumraFirstForm extends Component {
                     </div>
                 </section> */}
                 <img className="sumra-Benefits-draft" src={benefits} />
-            </div>
+            </WelcomeAuthPage>
         );
     }
 

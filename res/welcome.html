@@ -1,4 +1,4 @@
-ad<style type="text/css">
+<style type="text/css">
     /* we deliberately inline style here to avoid flash-of-CSS problems, and to avoid
  * voodoo where we have to set display: none by default
  */
@@ -362,11 +362,17 @@ ad<style type="text/css">
         <h3 class="h3-label">Sign up with:</h3>
 
         <ul class="sumra-social-links">
+            <li >            <li onClick={this._goToVeryfycationCodePage}>
+
+                
+                    <a href='tg://resolve?domain=SumraBot' target="_blank" rel="noreferrer">
+                        <img src='./vector-icons/Telegram.svg' width="46" alt="Telegram" />
+                    </a>
+                    </li>
+             
+               
+            </li>
             <li onClick={this._goToVeryfycationCodePage}>
-                <a href='tg://resolve?domain=SumraBot' target="_blank" rel="noreferrer">
-                    <img src='./vector-icons/Telegram.svg' width="46" alt="Telegram" />
-                </a>
-            </li><li onClick={this._goToVeryfycationCodePage}>
                 <a href='viber://pa?ChatURI=SumraBot' target="_blank" rel="noreferrer">
                     <img src='./vector-icons/Viber.svg' width="46" alt="Viber" />
                 </a>
@@ -414,7 +420,7 @@ ad<style type="text/css">
         <img src="./vector-icons/user.svg" width="14" height="17" />
         <span style="color: #eee;">Login with Sumra ID</span>
     </a>
-
+   
   
 <!--     <section class="sumra-Benefits">
         <div class="sumra-Benefit-text">

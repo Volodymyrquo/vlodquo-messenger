@@ -599,10 +599,10 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
             <AuthPage>
 
                <AuthBody>
-                    <h2>
-                        {_t('Sign in')}
+                    <h1 className='h1-title'>
+                        {_t('Login with Sumra ID')}
                         {loader}
-                    </h2>
+                    </h1>
                     { errorTextSection }
                    
                     { this.renderLoginComponentForFlows() }

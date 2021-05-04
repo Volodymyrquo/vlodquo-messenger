@@ -20,6 +20,8 @@ export default class AuthBody extends React.PureComponent {
     static replaces = "AuthBody";
 
     render() {
-        return <div className="login-form">{this.props.children}</div>;
+        return (
+            <div className="sumra-main login-form">{this.props.children}</div>
+        );
     }
 }

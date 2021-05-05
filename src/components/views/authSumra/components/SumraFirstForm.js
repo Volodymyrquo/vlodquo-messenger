@@ -16,8 +16,6 @@ import WelcomeAuthPage from "../WelcomeAuthPage";
  * @extends Component
  */
 export default class SumraFirstForm extends Component {
-    s;
-
     /**
      * Initializes a new {@code FirstForm} instance.
      *

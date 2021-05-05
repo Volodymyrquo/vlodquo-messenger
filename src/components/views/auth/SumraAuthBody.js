@@ -16,7 +16,7 @@ limitations under the License.
 
 import React from "react";
 
-export default class AuthBody extends React.PureComponent {
+export default class SumraAuthBody extends React.PureComponent {
     static replaces = "AuthBody";
 
     render() {

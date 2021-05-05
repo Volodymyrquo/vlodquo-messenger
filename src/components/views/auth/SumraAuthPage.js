@@ -27,7 +27,8 @@ export default class SumraAuthPage extends React.PureComponent {
                 <header className="sumra-header">
                     <div className="logotype"></div>
                 </header>
-                <div className="sumra-main">{this.props.children}</div>
+
+                <main className="sumra-main color">{this.props.children}</main>
             </>
         );
     }

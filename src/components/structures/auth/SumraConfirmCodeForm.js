@@ -1,7 +1,7 @@
 import React, { Component, createRef } from "react";
 import ReactCodeInput from "react-verification-code-input";
 import logout from "../../../../res/vector-icons/icon-logout.svg";
-
+import SumraUserCreateForm from "../../views/auth/SumraUserCreateForm";
 /**
  * Sumra: Confirm code
  *
@@ -29,6 +29,7 @@ export default class SumraConfirmCodeForm extends Component {
 
         this.state = {
             verificationCode: "",
+            verificationComplete: false,
         };
 
         this.input = createRef();
@@ -43,43 +44,47 @@ export default class SumraConfirmCodeForm extends Component {
     render() {
         const { type, fieldWidth, fieldHeight, fields } = this.props;
 
-        let { className } = this.props;
-
-        className += " verification-code-form";
+        console.log(this.props);
 
         return (
-            <div className="sumra-main verification-code-form">
-                <h1 className="h1-title">Confirmation Access</h1>
+            <>
+                {this.state.verificationComplete ? (
+                    <SumraUserCreateForm />
+                ) : (
+                    <div className="sumra-main verification-code-form">
+                        <h1 className="h1-title">Confirmation Access</h1>
 
-                <form>
-                    <h2 className="h2-label">
-                        Enter the six-digit verification code.
-                    </h2>
+                        <form>
+                            <h2 className="h2-label">
+                                Enter the six-digit verification code.
+                            </h2>
 
-                    <ReactCodeInput
-                        className="sumra-react-code-input"
-                        ref={this.input}
-                        type={type}
-                        fieldWidth={fieldWidth}
-                        fieldHeight={fieldHeight}
-                        onChange={this._handleChange}
-                        onComplete={this._handleComplete}
-                    />
+                            <ReactCodeInput
+                                className="sumra-react-code-input"
+                                ref={this.input}
+                                type={type}
+                                fieldWidth={fieldWidth}
+                                fieldHeight={fieldHeight}
+                                onChange={this._handleChange}
+                                onComplete={this._handleComplete}
+                            />
 
-                    <button
-                        className="sumra-Button"
-                        onClick={this._submitVerificationCode}
-                    >
-                        <img
-                            className="sumra-Button-icon-left"
-                            src={logout}
-                            width="18"
-                        />
+                            <button
+                                className="sumra-Button"
+                                onClick={this._submitVerificationCode}
+                            >
+                                <img
+                                    className="sumra-Button-icon-left"
+                                    src={logout}
+                                    width="18"
+                                />
 
-                        <span>Continue</span>
-                    </button>
-                </form>
-            </div>
+                                <span>Continue</span>
+                            </button>
+                        </form>
+                    </div>
+                )}
+            </>
         );
     }
 
@@ -98,8 +103,7 @@ export default class SumraConfirmCodeForm extends Component {
         const isComplete = verificationCode.length === fields;
 
         if (isComplete) {
-            this.props.onSetCode(verificationCode);
-            this.props.onStep(3);
+            this.setState({ verificationComplete: true });
         }
     };
 

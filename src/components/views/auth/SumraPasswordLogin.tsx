@@ -481,7 +481,7 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         }
 
         return (
-            <div className="sumra-main login-form authentification-form">
+            <div >
                 <form onSubmit={this.onSubmitForm}>
                  {/*    {loginType} */}
                    {loginField}
@@ -524,6 +524,7 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                   />
                   <span>{_t('Sign up')}</span></button>
                 </form>
+
             </div>
         );
     }

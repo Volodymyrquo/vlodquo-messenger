@@ -29,6 +29,7 @@ import SettingsStore from "matrix-react-sdk/src/settings/SettingsStore";
 import {UIFeature} from "matrix-react-sdk/src/settings/UIFeature";
 import CountlyAnalytics from "matrix-react-sdk/src/CountlyAnalytics";
 import {IMatrixClientCreds} from "matrix-react-sdk/src/MatrixClientPeg";
+import SSOButtons from "../../views/elements/SSOButtons"
 
 // These are used in several places, and come from the js-sdk's autodiscovery
 // stuff. We define them here so that they'll be picked up by i18n.
@@ -524,16 +525,21 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
 
     private renderSsoStep = loginType => {
         const flow = this.state.flows.find(flow => flow.type === "m.login." + loginType) as ISSOFlow;
-        const SSOButtons = sdk.getComponent("views.elements.SSOButtons") 
+        /* const SSOButtons = sdk.getComponent("views.elements.SSOButtons")  */
 
         return (
+            
             <SSOButtons
                 matrixClient={this.loginLogic.createTemporaryClient()}
                 flow={flow}
                 loginType={loginType}
                 fragmentAfterLogin={this.props.fragmentAfterLogin}
                 primary={!this.state.flows.find(flow => flow.type === "m.login.password")}
+                className="sumra-Button"
             />
+
+
+            
         );
     };
 
@@ -586,6 +592,7 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
                 </div> }
             </div>;
         } else if (SettingsStore.getValue(UIFeature.Registration)) {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             footer = (
                 <span className="mx_AuthBody_changeFlow">
                     {_t("New? <a>Create account</a>", {}, {
@@ -599,14 +606,14 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
             <AuthPage>
 
                <AuthBody>
+                   <div className="sumra-main login-form authentification-form" >
                     <h1 className='h1-title'>
                         {_t('Login with Sumra ID')}
                         {loader}
                     </h1>
                     { errorTextSection }
-                   
                   { this.renderLoginComponentForFlows() } 
-                   
+                  </div>
                 </AuthBody> 
             </AuthPage>
         );

@@ -51,7 +51,7 @@ export default class SumraConfirmCodeForm extends Component {
                 {this.state.verificationComplete ? (
                     <SumraUserCreateForm />
                 ) : (
-                    <div className="sumra-main verification-code-form">
+                    <div className="sumra-main verification-code-form authentification-form">
                         <h1 className="h1-title">Confirmation Access</h1>
 
                         <form>

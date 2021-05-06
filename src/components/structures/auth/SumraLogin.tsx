@@ -488,7 +488,7 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         // this is the ideal order we want to show the flows in
         const order = [
             "m.login.password",
-            "m.login.sso",
+             "m.login.sso", 
         ];
 
         const flows = order.map(type => this.state.flows.find(flow => flow.type === type)).filter(Boolean);
@@ -605,8 +605,8 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
                     </h1>
                     { errorTextSection }
                    
-                    { this.renderLoginComponentForFlows() }
-                    { footer }
+                  { this.renderLoginComponentForFlows() } 
+                   
                 </AuthBody> 
             </AuthPage>
         );

@@ -5,7 +5,6 @@ import personIcon from "../../../../res/vector-icons/icon-person.svg";
 import personOrange from "../../../../res/vector-icons/icon-person-orange.svg";
 import iconBlock from "../../../../res/vector-icons/icon-block.svg";
 import checkGreen from "../../../../res/vector-icons/icon-check-green.svg";
-
 /**
  * Sumra: Create user
  *
@@ -73,7 +72,7 @@ export default class SumraUserCreateForm extends Component {
         }
 
         return (
-            <div className="sumra-main user-signup-form">
+            <div className="sumra-main user-signup-form authentification-form">
                 <h1 className="h1-title">Enter username</h1>
 
                 <form>
@@ -164,6 +163,7 @@ export default class SumraUserCreateForm extends Component {
         let response = await makeFetch(END_POINTS.REGISTRATION, {
             code: this.state.verificationCode,
             username: this.state.username,
+            test: true,
         });
 
         if (response.ok) {
@@ -173,6 +173,7 @@ export default class SumraUserCreateForm extends Component {
             console.log(json);
             this.setState({ password: this.state.password });
             localStorage.setItem("password", json.password);
+            location.href = location.origin + "/#/login";
         }
     };
 

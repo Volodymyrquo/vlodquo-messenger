@@ -5,8 +5,6 @@ import SumraUserCreateForm from "./components/SumraUserCreateForm";
 import SumraLoginForm from "./components/SumraLoginForm";
 import * as sdk from "matrix-react-sdk/src/index";
 
-import "./SumraAuthPage.css";
-
 /**
  * Represents the authentification page.
  *

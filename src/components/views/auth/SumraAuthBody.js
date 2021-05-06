@@ -16,12 +16,10 @@ limitations under the License.
 
 import React from "react";
 
-export default class SumraAuthBody extends React.PureComponent {
+export default class AuthBody extends React.PureComponent {
     static replaces = "AuthBody";
 
     render() {
-        return (
-            <div className="sumra-main login-form">{this.props.children}</div>
-        );
+        return <div className="sumra-main">{this.props.children}</div>;
     }
 }

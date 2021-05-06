@@ -17,7 +17,7 @@ limitations under the License.
 import React from "react";
 import "./SumraAuthPage.css";
 
-export default class SumraAuthPage extends React.PureComponent {
+export default class AuthPage extends React.PureComponent {
     static replaces = "AuthPage";
 
     // cache the url as a static to prevent it changing without refreshing
@@ -28,7 +28,7 @@ export default class SumraAuthPage extends React.PureComponent {
                     <div className="logotype"></div>
                 </header>
 
-                <main className="sumra-main color">{this.props.children}</main>
+                <main className="sumra-main">{this.props.children}</main>
             </>
         );
     }

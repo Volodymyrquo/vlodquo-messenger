@@ -45,6 +45,8 @@ export default class SumraWelcome extends React.PureComponent {
 
     render() {
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
+        const AuthBody = sdk.getComponent("auth.AuthBody");
+
         const links = socialLinks.map((v, index) => {
             let href = "";
             if (isMobile) {
@@ -63,43 +65,47 @@ export default class SumraWelcome extends React.PureComponent {
 
         return (
             <AuthPage>
-                <h1 className="h1-title">Wellcome to Sumra Chat</h1>
-                <h2 className="h2-subtitle">Please Login or Sign Up</h2>
-                <section>
-                    <h3 className="h3-label">Sign up with:</h3>
+                <AuthBody>
+                    <div className="authentification-form">
+                        <h1 className="h1-title">Wellcome to Sumra Chat</h1>
+                        <h2 className="h2-subtitle">Please Login or Sign Up</h2>
+                        <section>
+                            <h3 className="h3-label">Sign up with:</h3>
 
-                    <ul className="sumra-social-links">{links}</ul>
-                </section>
-                <div className="sumra-line"></div>
-                <section>
-                    <h3 className="h3-label">Sign up with:</h3>
-                    <form>
-                        <fieldset className="sumra-phone-fieldset">
-                            <legend>Your mobile phone number</legend>
+                            <ul className="sumra-social-links">{links}</ul>
+                        </section>
+                        <div className="sumra-line"></div>
+                        <section>
+                            <h3 className="h3-label">Sign up with:</h3>
+                            <form>
+                                <fieldset className="sumra-phone-fieldset">
+                                    <legend>Your mobile phone number</legend>
 
-                            <PhoneInput
-                                flags={flags}
-                                placeholder="Enter phone number"
-                                value={this.state.phone}
-                                onChange={this._changePhoneNumber}
-                            />
+                                    <PhoneInput
+                                        flags={flags}
+                                        placeholder="Enter phone number"
+                                        value={this.state.phone}
+                                        onChange={this._changePhoneNumber}
+                                    />
 
-                            <div
-                                className="sumra-phone-send"
-                                onClick={this._submitPhoneNumber}
-                            >
-                                <img src={send} />
-                            </div>
-                        </fieldset>
-                    </form>
-                </section>
-                <div className="sumra-line"></div>
-                <a className="sumra-Button" href="/#/login">
-                    <img src={user} width="14" height="17" />
-                    <span style={{ color: "white" }}>Login with Sumra ID</span>
-                </a>
+                                    <div
+                                        className="sumra-phone-send"
+                                        onClick={this._submitPhoneNumber}
+                                    >
+                                        <img src={send} />
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </section>
+                        <div className="sumra-line"></div>
+                        <a className="sumra-Button" href="/#/login">
+                            <img src={user} width="14" height="17" />
+                            <span style={{ color: "white" }}>
+                                Login with Sumra ID
+                            </span>
+                        </a>
 
-                {/* <section class = 'sumra-Benefits'>
+                        {/* <section class = 'sumra-Benefits'>
                     <div className = 'sumra-Benefit-text'>
                         <b>Earn Unlimited</b> DIVITS for your time and activities on <b>Sumra Chat</b> 
                     </div>
@@ -107,7 +113,9 @@ export default class SumraWelcome extends React.PureComponent {
                         <b>Exchange & Redeem</b> DIVITS.
                     </div>
                 </section> */}
-                <img className="sumra-Benefits-draft" src={benefits} />
+                        <img className="sumra-Benefits-draft" src={benefits} />
+                    </div>
+                </AuthBody>
             </AuthPage>
         );
     }

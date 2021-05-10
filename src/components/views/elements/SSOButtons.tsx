@@ -60,7 +60,7 @@ const SSOButton: React.FC<ISSOButtonProps> = ({
     mini,
     ...props
 }) => {
-    const label = idp ? _t("Continue with %(provider)s", { provider: idp.name }) : _t("SIGN UP");
+    const label = idp ? _t("Continue with %(provider)s", { provider: idp.name }) : _t("Sign in with single sign-on");
     const AccessibleTooltipButton = sdk.getComponent("views.elements.AccessibleTooltipButton");
     const AccessibleButton = sdk.getComponent("views.elements.AccessibleButton");
 

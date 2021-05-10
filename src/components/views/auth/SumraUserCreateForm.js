@@ -129,7 +129,7 @@ export default class SumraUserCreateForm extends Component {
 
         this.setState({ username: value });
 
-        if (this.timerID) {
+        /*  if (this.timerID) {
             clearTimeout(this.timerID);
         }
 
@@ -143,7 +143,7 @@ export default class SumraUserCreateForm extends Component {
                     }
                 })
                 .catch(console.error);
-        }, 300);
+        }, 300); */
     };
 
     /**
@@ -154,26 +154,30 @@ export default class SumraUserCreateForm extends Component {
      * @returns {void}
      */
     _submitUserForm = async (event) => {
-        event.preventDefault();
-
         if (this.state.invalidUserName) {
             return;
         }
 
-        let response = await makeFetch(END_POINTS.REGISTRATION, {
-            code: this.state.verificationCode,
+        const response = await makeFetch(END_POINTS.REGISTRATION, {
+            code: this.props.verificationCode,
             username: this.state.username,
-            test: true,
+            device_id: "SumraChatWebsiteDevice",
+            app_uid: "SumraCharWebsite",
         });
 
         if (response.ok) {
             console.log(response);
             const json = await response.json();
-            alert("your password is: " + json.password);
-            console.log(json);
-            this.setState({ password: this.state.password });
-            localStorage.setItem("password", json.password);
-            location.href = location.origin + "/#/login";
+            console.log("###Data### " + json.data);
+
+            localStorage.setItem("mx_hs_url", "https://syn.sumra.net/");
+            localStorage.setItem("mx_is_url", "https://syn.sumra.net/");
+            localStorage.setItem("mx_device_id", "SumraChatWebsiteDevice");
+            localStorage.setItem("mx_user_id", json.data.user_id);
+            localStorage.setItem("mx_access_token", json.data.access_token);
+            localStorage.setItem("mx_crypto_initialised", true);
+
+            location.href = location.origin + "/#/home";
         }
     };
 

@@ -489,7 +489,7 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         // this is the ideal order we want to show the flows in
         const order = [
             "m.login.password",
-             "m.login.sso", 
+            /*  "m.login.sso", */
         ];
 
         const flows = order.map(type => this.state.flows.find(flow => flow.type === type)).filter(Boolean);
@@ -528,30 +528,28 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         /* const SSOButtons = sdk.getComponent("views.elements.SSOButtons")  */
 
         return (
-            
+
             <SSOButtons
                 matrixClient={this.loginLogic.createTemporaryClient()}
                 flow={flow}
                 loginType={loginType}
                 fragmentAfterLogin={this.props.fragmentAfterLogin}
                 primary={!this.state.flows.find(flow => flow.type === "m.login.password")}
-                className="sumra-Button"
             />
 
 
-            
         );
     };
 
     render() {
-  //      const AuthHeader = sdk.getComponent("auth.AuthHeader");
+        //      const AuthHeader = sdk.getComponent("auth.AuthHeader");
         const AuthBody = sdk.getComponent("auth.AuthBody");
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
 
-        const InlineSpinner = sdk.getComponent("views.elements.InlineSpinner") 
-        const Spinner = sdk.getComponent("views.elements.Spinner") 
+        const InlineSpinner = sdk.getComponent("views.elements.InlineSpinner")
+        const Spinner = sdk.getComponent("views.elements.Spinner")
         const ServerPicker = sdk.getComponent("views.elements.ServerPicker")
-    
+
         const loader = this.isBusy() && !this.state.busyLoggingIn ?
             <div className="mx_Login_loader"><Spinner /></div> : null;
 
@@ -605,16 +603,27 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
         return (
             <AuthPage>
 
-               <AuthBody>
-                   <div className="sumra-main login-form authentification-form" >
-                    <h1 className='h1-title'>
-                        {_t('Login with Sumra ID')}
-                        {loader}
-                    </h1>
-                    { errorTextSection }
-                  { this.renderLoginComponentForFlows() } 
-                  </div>
-                </AuthBody> 
+                <AuthBody>
+                    <div className="sumra-main login-form authentification-form" >
+                        <h1 className='h1-title'>
+                            {_t('Login with Sumra ID')}
+                            {loader}
+                        </h1>
+                        { errorTextSection }
+                        { this.renderLoginComponentForFlows() }
+                        <div className="sumra-link-forgotPassword">Forgot password?</div>
+                        <div className="sumra-link-createUser">
+                                      New user?
+<a href="/#/welcome">
+<span>Create a Sumra ID</span>
+
+</a>
+                            
+                        </div>
+
+
+                    </div>
+                </AuthBody>
             </AuthPage>
         );
     }

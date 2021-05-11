@@ -70,7 +70,8 @@
     "react-phone-number-input": "^3.1.19",
     "react-verification-code-input": "^1.2.9",
     "sanitize-html": "github:apostrophecms/sanitize-html#3c7f93f2058f696f5359e3e58d464161647226db",
-    "ua-parser-js": "^0.7.23"
+    "ua-parser-js": "^0.7.23",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -97,6 +98,7 @@
     "@types/react": "^16.9",
     "@types/react-dom": "^16.9.10",
     "@types/sanitize-html": "^1.27.1",
+    "@types/uuid": "^8.3.0",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",

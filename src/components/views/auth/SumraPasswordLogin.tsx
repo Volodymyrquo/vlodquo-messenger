@@ -523,9 +523,6 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                     alt="logout"
                   />
                   <span>{_t('Sign up')}</span></button>
-                  
-
-                  
                 </form>
 
             </div>

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { END_POINTS, fetchValidateName, makeFetch } from "./functions";
+import { v1 as uuidv1 } from "uuid";
 import iconEnter from "../../../../res/vector-icons/icon-enter.svg";
 import personIcon from "../../../../res/vector-icons/icon-person.svg";
 import personOrange from "../../../../res/vector-icons/icon-person-orange.svg";
 import iconBlock from "../../../../res/vector-icons/icon-block.svg";
 import checkGreen from "../../../../res/vector-icons/icon-check-green.svg";
+
 /**
  * Sumra: Create user
  *
@@ -154,14 +156,17 @@ export default class SumraUserCreateForm extends Component {
      * @returns {void}
      */
     _submitUserForm = async (event) => {
+        event.preventDefault();
+
         if (this.state.invalidUserName) {
             return;
         }
 
+        const deviceId = uuidv1();
         const response = await makeFetch(END_POINTS.REGISTRATION, {
             code: this.props.verificationCode,
             username: this.state.username,
-            device_id: "SumraChatWebsiteDevice",
+            device_id: deviceId,
             app_uid: "SumraCharWebsite",
         });
 
@@ -172,12 +177,13 @@ export default class SumraUserCreateForm extends Component {
 
             localStorage.setItem("mx_hs_url", "https://syn.sumra.net/");
             localStorage.setItem("mx_is_url", "https://syn.sumra.net/");
-            localStorage.setItem("mx_device_id", "SumraChatWebsiteDevice");
+            localStorage.setItem("mx_device_id", json.data.device_id);
             localStorage.setItem("mx_user_id", json.data.user_id);
             localStorage.setItem("mx_access_token", json.data.access_token);
             localStorage.setItem("mx_crypto_initialised", true);
 
             location.href = location.origin + "/#/home";
+            location.reload();
         }
     };
 

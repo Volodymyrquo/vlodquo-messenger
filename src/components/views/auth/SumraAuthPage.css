@@ -83,8 +83,9 @@ button {
 }
 .sumra-main {
     min-height: calc(100vh - 64px - 153px);
-    background-color: #fff;
-    background-image: url("../../../../res/images/sumra/pattern.svg");
+    background-color: red;
+    /*     background-image: url("../../../../res/images/sumra/pattern.svg");
+ */
 }
 .sumra-main .h1-title,
 .sumra-main .h2-subtitle,

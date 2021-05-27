@@ -16,6 +16,7 @@ limitations under the License.
 
 import React from "react";
 import "./SumraAuthPage.css";
+import Slide from "../../../../res/images/sumra/slide-1-min.png";
 
 export default class AuthPage extends React.PureComponent {
     static replaces = "AuthPage";
@@ -25,7 +26,7 @@ export default class AuthPage extends React.PureComponent {
         return (
             <>
                 <div className="sumra-welcome-carousel">
-                    <div className="logotype"></div>
+                    <img src={Slide} alt="slide" />
                 </div>
 
                 <main className="sumra-welcome-main">

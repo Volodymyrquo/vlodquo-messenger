@@ -67,10 +67,8 @@ export default class SumraWelcome extends React.PureComponent {
             <AuthPage>
                 <AuthBody>
                     <div className="sumra-auth-form">
-                        <h1 className="h1-title">Wellcome to Sumra Chat</h1>
-
-                        <h2 className="h2-subtitle">Sign Up or Login</h2>
-                        <section>
+                        <section className="sumra-auth-login">
+                            <h2 className="h2-subtitle">Sign Up or Login</h2>
                             <h3 className="h3-label">
                                 Start by using your Messenger:
                             </h3>

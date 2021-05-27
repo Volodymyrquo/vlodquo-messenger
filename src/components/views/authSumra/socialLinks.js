@@ -1,19 +1,15 @@
-import Telegram from "../../../../res/images/sumra/Telegram.svg";
-import Viber from "../../../../res/images/sumra/Viber.svg";
-import Messanger from "../../../../res/images/sumra/Messanger.svg";
-import WhatsApp from "../../../../res/images/sumra/WhatsApp.svg";
-import Signal from "../../../../res/images/sumra/Signal.svg";
+import Telegram from "../../../../res/images/sumra/messengers/Telegram.svg";
+import Viber from "../../../../res/images/sumra/messengers/Viber.svg";
+import Messanger from "../../../../res/images/sumra/messengers/Messanger.svg";
+import WhatsApp from "../../../../res/images/sumra/messengers/WhatsApp.svg";
+import Signal from "../../../../res/images/sumra/messengers/Signal.svg";
+import Line from "../../../../res/images/sumra/messengers/Line.svg";
 
 export const socialLinks = [
     {
         image: Telegram,
         href: "https://t.me/sumrabot",
         hrefMobile: "tg://resolve?domain=SumraBot",
-    },
-    {
-        image: Viber,
-        href: "viber://pa?ChatURI=SumraBot",
-        hrefMobile: "viber://pa?ChatURI=SumraBot",
     },
     {
         image: Messanger,
@@ -27,6 +23,16 @@ export const socialLinks = [
     },
     {
         image: Signal,
+        href: "#",
+        hrefMobile: "#",
+    },
+    {
+        image: Viber,
+        href: "viber://pa?ChatURI=SumraBot",
+        hrefMobile: "viber://pa?ChatURI=SumraBot",
+    },
+    {
+        image: Line,
         href: "#",
         hrefMobile: "#",
     },

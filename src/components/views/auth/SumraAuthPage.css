@@ -1,5 +1,8 @@
 /** Variables */
 /** Styles */
+ul {
+    padding: 0px;
+}
 button {
     padding: 0;
     border: none;
@@ -377,7 +380,7 @@ button {
     left: calc(50% - 310px / 2);
     top: 182.27px;
 }
-.sumra-auth-form.sumra-auth-messengers {
+.sumra-auth-form.sumra-auth-login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -388,4 +391,26 @@ button {
     height: 228px;
     left: calc(50% - 310px / 2);
     top: 0px;
+}
+.sumra-auth-form.sumra-auth-login.sumra-auth-messengers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+
+    position: static;
+    width: 310px;
+    height: 108px;
+    left: 0px;
+    top: 120px;
+    list-style: none;
+}
+
+.sumra-auth-messengers li {
+    display: inline-block;
+    margin: 8px;
+    border-radius: 5px;
+    width: 44px;
+    height: 44px;
 }

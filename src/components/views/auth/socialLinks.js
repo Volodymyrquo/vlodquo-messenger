@@ -3,7 +3,8 @@ import Viber from "../../../../res/images/sumra/Viber.svg";
 import Messanger from "../../../../res/images/sumra/Messanger.svg";
 import WhatsApp from "../../../../res/images/sumra/WhatsApp.svg";
 import Signal from "../../../../res/images/sumra/Signal.svg";
-
+/* import Line from "../../../../res/images/sumra/Line.png";
+ */
 export const socialLinks = [
     {
         image: Telegram,
@@ -15,7 +16,12 @@ export const socialLinks = [
         href: "viber://pa?ChatURI=SumraBot",
         hrefMobile: "viber://pa?ChatURI=SumraBot",
     },
-    {
+    /*     {
+        image: Line,
+        href: "line://ti/p/@772dmcwu",
+        hrefMobile: "line://ti/p/@772dmcwu",
+    },
+ */ {
         image: Messanger,
         href: "https://m.me/SumraBot",
         hrefMobile: "https://m.me/SumraBot",

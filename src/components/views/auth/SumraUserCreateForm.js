@@ -156,25 +156,20 @@ export default class SumraUserCreateForm extends Component {
      * @returns {void}
      */
     _submitUserForm = async (event) => {
+        debugger;
         event.preventDefault();
 
-        if (this.state.invalidUserName) {
-            return;
-        }
-
-        const deviceId = uuidv1();
         const response = await makeFetch(END_POINTS.REGISTRATION, {
             code: this.props.verificationCode,
             username: this.state.username,
-            device_id: deviceId,
-            app_uid: "SumraCharWebsite",
+            app_uid: "SumraChatWebsite",
         });
+        const json = await response.json();
 
-        if (response.ok) {
-            console.log(response);
-            const json = await response.json();
-            console.log("###Data### " + json.data);
-
+        if (!json.success) {
+            this.setState({ invalidUserName: true });
+        }
+        if (json.success) {
             localStorage.setItem("mx_hs_url", "https://syn.sumra.net/");
             localStorage.setItem("mx_is_url", "https://syn.sumra.net/");
             localStorage.setItem("mx_device_id", json.data.device_id);

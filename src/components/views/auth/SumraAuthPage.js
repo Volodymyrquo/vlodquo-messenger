@@ -24,11 +24,13 @@ export default class AuthPage extends React.PureComponent {
     render() {
         return (
             <>
-                <header className="sumra-header">
+                <div className="sumra-welcome-carousel">
                     <div className="logotype"></div>
-                </header>
+                </div>
 
-                <main className="sumra-main">{this.props.children}</main>
+                <main className="sumra-welcome-main">
+                    {this.props.children}
+                </main>
             </>
         );
     }

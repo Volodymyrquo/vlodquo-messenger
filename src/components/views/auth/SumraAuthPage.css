@@ -340,3 +340,52 @@ button {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
+/** Styles for Sumra chat */
+
+.sumra-welcome-main {
+    position: absolute;
+    width: 500px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+
+    background: linear-gradient(
+            0deg,
+            rgba(249, 251, 255, 0.65),
+            rgba(249, 251, 255, 0.65)
+        ),
+        linear-gradient(180deg, #e8f1ff 0%, #ffffff 100%);
+}
+.sumra-welcome-carousel {
+    position: absolute;
+    left: 0px;
+    right: 500px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.sumra-auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+
+    position: absolute;
+    width: 310px;
+    height: 551px;
+    left: calc(50% - 310px / 2);
+    top: 182.27px;
+}
+.sumra-auth-form.sumra-auth-messengers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+
+    position: static;
+    width: 310px;
+    height: 228px;
+    left: calc(50% - 310px / 2);
+    top: 0px;
+}

@@ -4,7 +4,7 @@ import PhoneInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
 import { makeFetch, makeid } from "../functions";
 import { isMobile } from "react-device-detect";
-import { socialLinks } from "../socialLinks";
+import socialLinks from "../socialLinks";
 import send from "../../../../../res/images/sumra/send.svg";
 import user from "../../../../../res/images/sumra/user.svg";
 import benefits from "../../../../../res/images/sumra/Benefits_draft.svg";

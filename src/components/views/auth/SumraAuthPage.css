@@ -237,19 +237,49 @@ button {
 .sumra-input-message.success {
     color: #419681;
 }
+
+.sumra-button-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    background-color: #419681;
+
+    position: static;
+    width: 310px;
+    height: 112px;
+    left: calc(50% - 310px / 2);
+    top: 120px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 25px 0px;
+}
 .sumra-Button {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    color: #fff;
-    background: linear-gradient(219.49deg, #f89949 24.58%, #f5872a 64.12%),
-        #f8913a;
-    border-radius: 8px;
-    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.07));
+    padding: 0px;
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 310px;
+    height: 56px;
+
+    /* Linear */
+
+    background: linear-gradient(270deg, #eda416 0%, #e97819 100%);
+    border-radius: 7px;
 }
+
 .sumra-Button:hover {
     cursor: pointer;
 }
@@ -262,13 +292,24 @@ button {
     left: 28px;
 }
 .sumra-Button span {
-    font-family: "SF UI Text";
+    position: static;
+    width: 161px;
+    height: 22px;
+    left: calc(50% - 161px / 2);
+    top: calc(50% - 22px / 2);
+
+    /* Body 17/Bold */
+
+    font-family: DM Sans;
     font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+    /* identical to box height, or 129% */
+
+    text-align: center;
+
+    color: #ffffff;
 }
 .sumra-Benefits {
     display: flex;
@@ -366,6 +407,10 @@ button {
     right: 500px;
     top: 0px;
     bottom: 0px;
+    background-image: url("../../../../res/images/sumra/slide-1-min.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .sumra-auth-form {
@@ -379,6 +424,57 @@ button {
     height: 551px;
     left: calc(50% - 310px / 2);
     top: 182.27px;
+    text-align: center;
+}
+.sumra-auth-logo {
+    position: absolute;
+    width: 200px;
+    height: 56px;
+    left: calc(50% - 200px / 2);
+    top: 70px;
+}
+.sumra-auth-form h1 {
+    position: static;
+    width: 310px;
+    height: 36px;
+    left: calc(50% - 310px / 2);
+    top: 0px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 28px */
+
+    display: flex;
+    align-items: center;
+
+    /* Other Colors/Primary dark */
+
+    color: #2e3140;
+}
+.sumra-auth-form h2 {
+    position: static;
+    width: 310px;
+    height: 14px;
+    left: calc(50% - 310px / 2);
+    top: 71px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 100%;
+    /* identical to box height, or 14px */
+
+    text-align: center;
+
+    /* Other Colors/Primary text */
+
+    color: #4c4e5a;
+
+    mix-blend-mode: normal;
 }
 .sumra-auth-form.sumra-auth-login {
     display: flex;
@@ -413,4 +509,23 @@ button {
     border-radius: 5px;
     width: 44px;
     height: 44px;
+}
+
+.sumra-auth-form.sumra-auth-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+
+    /* Linear */
+
+    background: linear-gradient(270deg, #eda416 0%, #e97819 100%);
+    border-radius: 7px;
 }

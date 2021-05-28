@@ -9,7 +9,7 @@ import Groupme from "../../../../res/images/sumra/messengers/Groupme.svg";
 import Skype from "../../../../res/images/sumra/messengers/Skype.svg";
 import Snapchat from "../../../../res/images/sumra/messengers/Snapchat.svg";
 
-export const socialLinks = [
+const socialLinks = [
     {
         image: Telegram,
         href: "https://t.me/sumrabot",
@@ -65,3 +65,5 @@ export const socialLinks = [
         hrefMobile: "#",
     },
 ];
+
+export default socialLinks;

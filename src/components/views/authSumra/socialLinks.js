@@ -5,7 +5,7 @@ import WhatsApp from "../../../../res/images/sumra/messengers/WhatsApp.svg";
 import Signal from "../../../../res/images/sumra/messengers/Signal.svg";
 import Line from "../../../../res/images/sumra/messengers/Line.svg";
 
-export const socialLinks = [
+const socialLinks = [
     {
         image: Telegram,
         href: "https://t.me/sumrabot",
@@ -37,3 +37,4 @@ export const socialLinks = [
         hrefMobile: "#",
     },
 ];
+export default socialLinks;

@@ -23,10 +23,11 @@ import PhoneInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
 import { makeFetch, makeid } from "./functions";
 import { isMobile } from "react-device-detect";
-import { socialLinks } from "./socialLinks";
+import socialLinks from "./socialLinks";
 import send from "../../../../res/vector-icons/send.svg";
 import user from "../../../../res/vector-icons/user.svg";
 import benefits from "../../../../res/vector-icons/Benefits_draft.svg";
+import logo from "../../../../res/images/sumra/logo.svg";
 
 // translatable strings for Welcome pages
 _td("Sign in with SSO");
@@ -66,18 +67,23 @@ export default class SumraWelcome extends React.PureComponent {
         return (
             <AuthPage>
                 <AuthBody>
+                    <div className="sumra-auth-logo">
+                        <img src={logo} alt="logo" />
+                    </div>
                     <div className="sumra-auth-form">
                         <section className="sumra-auth-login">
-                            <h2 className="h2-subtitle">Sign Up or Login</h2>
-                            <h3 className="h3-label">
-                                Start by using your Messenger:
-                            </h3>
+                            <h1>Sign Up or Login</h1>
+                            <h2>
+                                Start by using your <b> Messenger:</b>
+                            </h2>
 
                             <ul className="sumra-auth-messengers">{links}</ul>
                         </section>
                         <div className="sumra-line"></div>
                         <section>
-                            <h3 className="h3-label">Sign up with:</h3>
+                            <h2>
+                                Start by using your <b>Mobile phone</b>{" "}
+                            </h2>
                             <form>
                                 <fieldset className="sumra-phone-fieldset">
                                     <legend>Your mobile phone number</legend>
@@ -98,22 +104,14 @@ export default class SumraWelcome extends React.PureComponent {
                                 </fieldset>
                             </form>
                         </section>
-                        <div className="sumra-line"></div>
-                        <a className="sumra-Button" href="/#/login">
-                            <img src={user} width="14" height="17" />
-                            <span style={{ color: "white" }}>
-                                Login with Sumra ID
-                            </span>
-                        </a>
-                        {/* <section class = 'sumra-Benefits'>
-                    <div className = 'sumra-Benefit-text'>
-                        <b>Earn Unlimited</b> DIVITS for your time and activities on <b>Sumra Chat</b> 
-                    </div>
-                    <div className = 'sumra-Benefit-text'>
-                        <b>Exchange & Redeem</b> DIVITS.
-                    </div>
-                </section> */}
-                        <img className="sumra-Benefits-draft" src={benefits} />
+                        <section className="sumra-button-section">
+                            <div className="sumra-line"></div>
+                            <a className="sumra-Button" href="/#/login">
+                                <span style={{ color: "white" }}>
+                                    Login with Sumra ID
+                                </span>
+                            </a>
+                        </section>
                     </div>
                 </AuthBody>
             </AuthPage>

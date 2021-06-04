@@ -1,5 +1,12 @@
 /** Variables */
 /** Styles */
+
+/* @font-face {
+    font-family: DM sans;
+    src: url("./fonts/DMSans-Medium.ttf");
+    src: url("./fonts/DMSans-Regular.ttf");
+    src: url("./fonts/DMSans-Bold.ttf");
+} */
 ul {
     padding: 0px;
 }
@@ -558,9 +565,11 @@ button {
     position: relative;
     width: 464px;
     height: 32px;
-    left: calc(50% - 464px / 2 + 23.5px);
-    top: 628px;
+    left: calc(50% - 464px / 2);
+    top: 650px;
+}
 
+.sutisfied-clients span {
     font-family: DM Sans;
     font-style: normal;
     font-weight: bold;
@@ -570,4 +579,42 @@ button {
     /* White / 100% */
 
     color: #ffffff;
+    margin-left: 12px;
+}
+
+.sumra-welcome-testimonials {
+    position: relative;
+    width: 729px;
+    height: 52px;
+    left: calc(50% - 729px / 2);
+    top: 682px;
+
+    font-family: DM Sans;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 145%;
+    /* or 26px */
+
+    text-align: center;
+
+    /* White / 100% */
+
+    color: #ffffff;
+}
+
+.sumra-testimonials-author {
+    position: relative;
+    width: 155px;
+    height: 23px;
+    left: calc(50% - 114px / 2);
+    top: 702px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+
+    color: #fc8603;
 }

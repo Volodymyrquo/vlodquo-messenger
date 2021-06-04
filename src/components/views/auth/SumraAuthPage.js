@@ -16,19 +16,8 @@ limitations under the License.
 
 import React from "react";
 import "./SumraAuthPage.css";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css";
-// import Swiper core and required modules
-import SwiperCore, { Pagination } from "swiper/core";
-import Slide1 from "../../../../res/images/sumra/slide-1-min.png";
-import Slide2 from "../../../../res/images/sumra/slide-2-min.png";
+import WelcomeCarousel from "./WelcomeCarousel.jsx";
 
-// install Swiper modules
-
-SwiperCore.use([Pagination]);
 export default class AuthPage extends React.PureComponent {
     static replaces = "AuthPage";
 
@@ -37,37 +26,7 @@ export default class AuthPage extends React.PureComponent {
         return (
             <>
                 <div className="sumra-welcome-carousel">
-                    <Swiper
-                        pagination={true}
-                        className="swiper-container"
-                        grabCursor={true}
-                    >
-                        <SwiperSlide className="swiper-slide">
-                            <div
-                                className="sumra-wallet-slide"
-                                style={{
-                                    // eslint-disable-next-line max-len
-                                    backgroundImage: `linear-gradient(rgba(28, 25, 57, 0.3),rgba(28, 25, 57, 0.3)),url(${Slide1})`,
-                                }}
-                            >
-                                <div className="sutisfied-clients">
-                                    what users are saying about us
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
-                        <SwiperSlide className="swiper-slide">
-                            <div
-                                className="sumra-wallet-slide"
-                                style={{
-                                    // eslint-disable-next-line max-len
-                                    backgroundImage: `linear-gradient(rgba(28, 25, 57, 0.3),rgba(28, 25, 57, 0.3)),url(${Slide2})`,
-                                }}
-                            >
-                                Slider Two
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
+                    <WelcomeCarousel />
                 </div>
 
                 <main className="sumra-welcome-main">

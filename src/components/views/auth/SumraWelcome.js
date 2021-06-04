@@ -26,7 +26,6 @@ import { isMobile } from "react-device-detect";
 import socialLinks from "./socialLinks";
 import send from "../../../../res/vector-icons/send.svg";
 import logo from "../../../../res/images/sumra/logo.svg";
-import or from "../../../../res/images/sumra/or.svg";
 
 // translatable strings for Welcome pages
 _td("Sign in with SSO");

@@ -5,14 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 // import Swiper core and required modules
-import SwiperCore, { Pagination } from "swiper/core";
+import SwiperCore, { Pagination, Autoplay } from "swiper/core";
 import Slide1 from "../../../../res/images/sumra/slide-1-min.png";
 import Slide2 from "../../../../res/images/sumra/slide-2-min.png";
 import CombinedShape from "../../../../res/images/sumra/Combined Shape.svg";
 
 // install Swiper modules
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination, Autoplay]);
 
 const WelcomeCarousel = () => {
     return (
@@ -20,7 +20,7 @@ const WelcomeCarousel = () => {
             className="swiper-container"
             grabCursor={true}
             pagination={{ clickable: true }}
-            autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 30000 }}
         >
             <SwiperSlide className="swiper-slide">
                 <div

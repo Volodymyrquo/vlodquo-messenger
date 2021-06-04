@@ -25,9 +25,8 @@ import { makeFetch, makeid } from "./functions";
 import { isMobile } from "react-device-detect";
 import socialLinks from "./socialLinks";
 import send from "../../../../res/vector-icons/send.svg";
-import user from "../../../../res/vector-icons/user.svg";
-import benefits from "../../../../res/vector-icons/Benefits_draft.svg";
 import logo from "../../../../res/images/sumra/logo.svg";
+import or from "../../../../res/images/sumra/or.svg";
 
 // translatable strings for Welcome pages
 _td("Sign in with SSO");
@@ -79,7 +78,7 @@ export default class SumraWelcome extends React.PureComponent {
 
                             <ul className="sumra-auth-messengers">{links}</ul>
                         </section>
-                        <div className="sumra-line"></div>
+                        <div className="sumra-line">or</div>
                         <section>
                             <h2>
                                 Start by using your <b>Mobile phone</b>{" "}
@@ -105,11 +104,9 @@ export default class SumraWelcome extends React.PureComponent {
                             </form>
                         </section>
                         <section className="sumra-button-section">
-                            <div className="sumra-line"></div>
+                            <div className="sumra-line">or</div>
                             <a className="sumra-Button" href="/#/login">
-                                <span style={{ color: "white" }}>
-                                    Login with Sumra ID
-                                </span>
+                                <span>Login with Sumra ID</span>
                             </a>
                         </section>
                     </div>

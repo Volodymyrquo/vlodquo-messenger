@@ -16,7 +16,6 @@ limitations under the License.
 
 import React from "react";
 import "./SumraAuthPage.css";
-import WelcomeCarousel from "./WelcomeCarousel.jsx";
 
 export default class AuthPage extends React.PureComponent {
     static replaces = "AuthPage";
@@ -24,15 +23,9 @@ export default class AuthPage extends React.PureComponent {
     // cache the url as a static to prevent it changing without refreshing
     render() {
         return (
-            <>
-                <div className="sumra-welcome-carousel">
-                    <WelcomeCarousel />
-                </div>
-
-                <main className="sumra-welcome-main">
-                    {this.props.children}
-                </main>
-            </>
+            <div className="sumra-main" style={{ marginTop: "-50px" }}>
+                {this.props.children}
+            </div>
         );
     }
 }

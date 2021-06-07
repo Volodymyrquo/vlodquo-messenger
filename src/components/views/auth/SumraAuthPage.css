@@ -19,10 +19,68 @@ button {
 }
 
 .authentification-form {
-    max-width: 340px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: static;
+    width: 430px;
+    height: 459px;
+    left: calc(50% - 430px / 2);
+
+    background: #f9fbff;
+    /* Drop Shadow */
+
+    box-shadow: 0px 50px 70px rgba(35, 44, 91, 0.07);
+    border-radius: 12px;
 }
 
+.authentification-form .h1-title {
+    position: relative;
+    width: 310px;
+    height: 36px;
+    margin-left: calc(50% - 310px / 2);
+    top: 0px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 100%;
+    /* or 26px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Other Colors/Primary dark */
+
+    color: #2e3140;
+}
+.auth-text {
+    position: static;
+    width: 265px;
+    height: 50px;
+    left: calc(50% - 265px / 2);
+    top: 61px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    /* or 167% */
+
+    text-align: center;
+
+    /* Other Colors/Primary text */
+
+    color: #4c4e5a;
+
+    mix-blend-mode: normal;
+}
 .sumra-social-links {
     display: flex;
     justify-content: space-between;
@@ -80,14 +138,12 @@ button {
     display: table;
 }
 .sumra-main {
-    min-height: 100vh;
-
-    background: linear-gradient(
-            0deg,
-            rgba(249, 251, 255, 0.65),
-            rgba(249, 251, 255, 0.65)
-        ),
-        linear-gradient(180deg, #e8f1ff 0%, #ffffff 100%);
+    position: relative;
+    min-width: 100vw;
+    height: 880px;
+    margin-top: 0px;
+    background: linear-gradient(180deg, #e8f1ff 0%, #ffffff 100%);
+    padding-top: 186px;
 }
 .sumra-main .h1-title,
 .sumra-main .h2-subtitle,
@@ -97,13 +153,26 @@ button {
     line-height: 100%;
     text-align: center;
     color: #202020;
-    margin-top: 50px;
 }
 .sumra-main .h1-title {
-    padding-top: 45px;
+    display: inline-block;
+    position: static;
+    width: 310px;
+    height: 36px;
+    left: calc(50% - 310px / 2);
+    top: 0px;
+
+    font-family: DM Sans;
     font-weight: bold;
-    font-size: 30px;
-    white-space: nowrap;
+    font-size: 26px;
+    /* or 26px */
+
+    display: flex;
+    align-items: center;
+
+    /* Other Colors/Primary dark */
+
+    color: #2e3140;
 }
 .sumra-main .h2-subtitle {
     margin: 20px 0;
@@ -201,12 +270,16 @@ button {
     justify-content: space-between;
     align-items: center;
     height: 54px;
-    margin-top: 12px;
-    padding-bottom: 4px;
-    background: #fff;
-    border: 2px solid #dbdbdb;
+    margin-top: 25px;
     box-sizing: border-box;
-    border-radius: 8px;
+
+    flex-direction: row;
+    padding: 15px 25px;
+
+    background: #edf4ff;
+    border: 2px solid #cce0ff;
+    border-radius: 7px;
+    box-shadow: 0 12px 25px 0 rgba(138, 149, 158, 0.2);
 }
 .sumra-input-fieldset.available {
     border: 2px solid #f8913a;
@@ -617,4 +690,25 @@ button {
     line-height: 23px;
 
     color: #fc8603;
+}
+
+.sumra-terms-privacy {
+    position: relative;
+    width: 308px;
+    height: 44px;
+    left: calc(50% - 308px / 2);
+    top: 45px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 22px;
+    /* or 169% */
+
+    text-align: center;
+
+    /* Other Colors/Light text */
+
+    color: #7a7b85;
 }

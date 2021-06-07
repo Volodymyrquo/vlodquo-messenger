@@ -26,6 +26,7 @@ import { isMobile } from "react-device-detect";
 import socialLinks from "./socialLinks";
 import send from "../../../../res/vector-icons/send.svg";
 import logo from "../../../../res/images/sumra/logo.svg";
+import WelcomeCarousel from "./WelcomeCarousel.jsx";
 
 // translatable strings for Welcome pages
 _td("Sign in with SSO");
@@ -65,49 +66,58 @@ export default class SumraWelcome extends React.PureComponent {
         return (
             <AuthPage>
                 <AuthBody>
-                    <div className="sumra-auth-logo">
-                        <img src={logo} alt="logo" />
+                    <div className="sumra-welcome-carousel">
+                        <WelcomeCarousel />
                     </div>
-                    <div className="sumra-auth-form">
-                        <section className="sumra-auth-login">
-                            <h1>Sign Up or Login</h1>
-                            <h2>
-                                Start by using your <b> Messenger:</b>
-                            </h2>
+                    <div className="sumra-welcome-main">
+                        <div className="sumra-auth-logo">
+                            <img src={logo} alt="logo" />
+                        </div>
+                        <div className="sumra-auth-form">
+                            <section className="sumra-auth-login">
+                                <h1>Sign Up or Login</h1>
+                                <h2>
+                                    Start by using your <b> Messenger:</b>
+                                </h2>
 
-                            <ul className="sumra-auth-messengers">{links}</ul>
-                        </section>
-                        <div className="sumra-line">or</div>
-                        <section>
-                            <h2>
-                                Start by using your <b>Mobile phone</b>{" "}
-                            </h2>
-                            <form>
-                                <fieldset className="sumra-phone-fieldset">
-                                    <legend>Your mobile phone number</legend>
-
-                                    <PhoneInput
-                                        flags={flags}
-                                        placeholder="Enter phone number"
-                                        value={this.state.phone}
-                                        onChange={this._changePhoneNumber}
-                                    />
-
-                                    <div
-                                        className="sumra-phone-send"
-                                        onClick={this._submitPhoneNumber}
-                                    >
-                                        <img src={send} />
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </section>
-                        <section className="sumra-button-section">
+                                <ul className="sumra-auth-messengers">
+                                    {links}
+                                </ul>
+                            </section>
                             <div className="sumra-line">or</div>
-                            <a className="sumra-Button" href="/#/login">
-                                <span>Login with Sumra ID</span>
-                            </a>
-                        </section>
+                            <section>
+                                <h2>
+                                    Start by using your <b>Mobile phone</b>{" "}
+                                </h2>
+                                <form>
+                                    <fieldset className="sumra-phone-fieldset">
+                                        <legend>
+                                            Your mobile phone number
+                                        </legend>
+
+                                        <PhoneInput
+                                            flags={flags}
+                                            placeholder="Enter phone number"
+                                            value={this.state.phone}
+                                            onChange={this._changePhoneNumber}
+                                        />
+
+                                        <div
+                                            className="sumra-phone-send"
+                                            onClick={this._submitPhoneNumber}
+                                        >
+                                            <img src={send} />
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </section>
+                            <section className="sumra-button-section">
+                                <div className="sumra-line">or</div>
+                                <a className="sumra-Button" href="/#/login">
+                                    <span>Login with Sumra ID</span>
+                                </a>
+                            </section>
+                        </div>
                     </div>
                 </AuthBody>
             </AuthPage>

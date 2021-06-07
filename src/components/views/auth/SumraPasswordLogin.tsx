@@ -28,7 +28,7 @@ import withValidation from "matrix-react-sdk/src/components/views/elements/Valid
 import * as Email from "matrix-react-sdk/src/email";
 import Field from "matrix-react-sdk/src/components/views/elements/Field";
 import logout from "../../../../res/vector-icons/icon-logout.svg";
-import lock from "../../../../res/vector-icons/icon-lock.svg";
+import eye from "../../../../res/images/sumra/eye.svg";
 import person from "../../../../res/vector-icons/icon-person.svg";
 
 // For validating phone numbers without country codes
@@ -355,21 +355,16 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
             case LoginField.MatrixId:
                 classes.error = this.props.loginIncorrect && !this.props.username;
                 return   <fieldset className="sumra-input-fieldset">
-                <legend>User name</legend>
 
-                <img
-                    className="sumra-input-fieldset-icon"
-                    src={person}
-                />
 
-                <input
-                    type="text"
-                    placeholder="Enter username"
-                    value={this.props.username}
-                    onChange={this.onUsernameChanged}
-                />
-            </fieldset>
-          /*       
+                    <input
+                        type="text"
+                        placeholder="Enter username"
+                        value={this.props.username}
+                        onChange={this.onUsernameChanged}
+                    />
+                </fieldset>
+                /*       
                 <Field
                     className="sumra-input-fieldset"
                 
@@ -481,10 +476,10 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         }
 
         return (
-            <div >
+            <div>
                 <form onSubmit={this.onSubmitForm}>
-                 {/*    {loginType} */}
-                   {loginField}
+                    {/*    {loginType} */}
+                    {loginField}
 
                     {/* <Field
                         className={"sumra-input-fieldset"}
@@ -500,9 +495,8 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                     /> */}
 
                     <fieldset className="sumra-input-fieldset">
-                        <legend>Password</legend>
 
-                        <img className="sumra-input-fieldset-icon" src={lock} />
+                      
 
                         <input
                             type="password"
@@ -510,19 +504,16 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                             value={this.state.password}
                             onChange={this.onPasswordChanged}
                         />
+                          <img className="sumra-input-fieldset-icon" src={eye} />
                     </fieldset>
 
 
                     <button className="sumra-Button"
                         type="submit"
                         disabled={this.props.disableSubmit}
-                    >   <img
-                    className="sumra-Button-icon-left"
-                            src={logout}
-                    width="18"
-                    alt="logout"
-                  />
-                  <span>{_t('Sign up')}</span></button>
+                        style={{marginTop: '25px'}}
+                    >   
+                        <span>{_t('Sign up')}</span></button>
                 </form>
 
             </div>

@@ -156,7 +156,6 @@ export default class SumraUserCreateForm extends Component {
      * @returns {void}
      */
     _submitUserForm = async (event) => {
-        debugger;
         event.preventDefault();
 
         const response = await makeFetch(END_POINTS.REGISTRATION, {

@@ -30,6 +30,7 @@ import {UIFeature} from "matrix-react-sdk/src/settings/UIFeature";
 import CountlyAnalytics from "matrix-react-sdk/src/CountlyAnalytics";
 import {IMatrixClientCreds} from "matrix-react-sdk/src/MatrixClientPeg";
 import SSOButtons from "../../views/elements/SSOButtons"
+import logo from "../../../../res/images/sumra/logo.svg"
 
 // These are used in several places, and come from the js-sdk's autodiscovery
 // stuff. We define them here so that they'll be picked up by i18n.
@@ -604,24 +605,28 @@ export default class SumraLogin extends React.PureComponent<IProps, IState> {
             <AuthPage>
 
                 <AuthBody>
-                    <div className="sumra-main login-form authentification-form" >
+                    <div className="sumra-auth-logo">
+                        <img src={logo} alt="logo" />
+                    </div>
+                    <div className="authentification-form" >
                         <h1 className='h1-title'>
                             {_t('Login with Sumra ID')}
                             {loader}
                         </h1>
                         { errorTextSection }
-                        { this.renderLoginComponentForFlows() }
-                        <div className="sumra-link-forgotPassword">Forgot password?</div>
-                        <div className="sumra-link-createUser">
-                                      New user?
-<a href="/#/welcome">
-<span>Create a Sumra ID</span>
-
-</a>
-                            
+                        <div className="auth-text" >
+                       Please provide following details to login into your account
                         </div>
+                        { this.renderLoginComponentForFlows() }
 
 
+
+                    </div>
+                    <div className="sumra-terms-privacy">
+                        By using either Sign Up or Login you agree to our <br />
+                        <a href='#'>
+                            Terms & Privacy Policy.
+                        </a>
                     </div>
                 </AuthBody>
             </AuthPage>

@@ -6,6 +6,8 @@ import personIcon from "../../../../res/vector-icons/icon-person.svg";
 import personOrange from "../../../../res/vector-icons/icon-person-orange.svg";
 import iconBlock from "../../../../res/vector-icons/icon-block.svg";
 import checkGreen from "../../../../res/vector-icons/icon-check-green.svg";
+import * as sdk from "matrix-react-sdk/src/index";
+import logo from "../../../../res/images/sumra/logo.svg";
 
 /**
  * Sumra: Create user
@@ -43,6 +45,8 @@ export default class SumraUserCreateForm extends Component {
      */
     render() {
         const { invalidUserName, username } = this.state;
+        const AuthBody = sdk.getComponent("auth.AuthBody");
+        const AuthPage = sdk.getComponent("views.auth.AuthPage");
 
         let message, personIconSrc, validIconSrc, filedsetClassName;
 
@@ -74,48 +78,52 @@ export default class SumraUserCreateForm extends Component {
         }
 
         return (
-            <div className="sumra-main user-signup-form authentification-form">
-                <h1 className="h1-title">Enter username</h1>
+            <AuthPage>
+                <AuthBody>
+                    <div className="sumra-auth-logo">
+                        <img src={logo} alt="logo" />
+                    </div>
 
-                <form>
-                    <fieldset className={filedsetClassName}>
-                        <legend>User name</legend>
+                    <div className="sumra-create-username-box">
+                        <h1 className="sumra-create-username-title">
+                            Create Username
+                        </h1>
+                        <div className="sumra-create-username-text">
+                            Please provide following details for your new
+                            account
+                        </div>
 
-                        <img
-                            className="sumra-input-fieldset-icon"
-                            src={personIconSrc}
-                            width="22"
-                        />
+                        <form>
+                            <fieldset className={filedsetClassName}>
+                                <input
+                                    type="text"
+                                    placeholder="Enter username"
+                                    onChange={this._changeInput}
+                                />
 
-                        <input
-                            type="text"
-                            placeholder="Enter username"
-                            onChange={this._changeInput}
-                        />
+                                <img
+                                    className="sumra-input-fieldset-icon-right"
+                                    src={validIconSrc}
+                                    width="22"
+                                />
+                            </fieldset>
 
-                        <img
-                            className="sumra-input-fieldset-icon-right"
-                            src={validIconSrc}
-                            width="22"
-                        />
-                    </fieldset>
+                            {message}
 
-                    {message}
-
-                    <button
-                        className="sumra-Button"
-                        onClick={this._submitUserForm}
-                    >
-                        <img
-                            className="sumra-Button-icon-left"
-                            src={iconEnter}
-                            width="18"
-                        />
-
-                        <span>Submit</span>
-                    </button>
-                </form>
-            </div>
+                            <button
+                                className="sumra-Button"
+                                onClick={this._submitUserForm}
+                            >
+                                <span>Sign Up</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div className="sumra-terms-privacy">
+                        By using either Sign Up or Login you agree to our <br />
+                        <a href="#">Terms & Privacy Policy.</a>
+                    </div>
+                </AuthBody>
+            </AuthPage>
         );
     }
 

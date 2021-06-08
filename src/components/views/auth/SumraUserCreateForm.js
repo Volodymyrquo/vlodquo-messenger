@@ -161,7 +161,7 @@ export default class SumraUserCreateForm extends Component {
         const response = await makeFetch(END_POINTS.REGISTRATION, {
             code: this.props.verificationCode,
             username: this.state.username,
-            app_uid: "SumraChatWebsite",
+            app_uid: "chat.sumra.web",
         });
         const json = await response.json();
 

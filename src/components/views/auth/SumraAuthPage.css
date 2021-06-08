@@ -42,7 +42,6 @@ button {
     width: 310px;
     height: 36px;
     margin-left: calc(50% - 310px / 2);
-    top: 0px;
 
     font-family: DM Sans;
     font-style: normal;
@@ -59,6 +58,110 @@ button {
 
     color: #2e3140;
 }
+.sumra-verify-title {
+    position: static;
+    width: 310px;
+    height: 36px;
+    left: calc(50% - 310px / 2);
+    margin-bottom: 35px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 100%;
+    /* or 26px */
+
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+
+    /* Other Colors/Primary dark */
+
+    color: #2e3140;
+}
+.sumra-verify-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    width: 430px;
+    height: 491px;
+    left: calc(50% - 430px / 2);
+    top: 20px;
+
+    background: #f9fbff;
+    /* Drop Shadow */
+
+    box-shadow: 0px 50px 70px rgba(35, 44, 91, 0.07);
+    border-radius: 12px;
+}
+.sumra-verify-text {
+    position: static;
+    width: 310px;
+    height: 50px;
+    left: calc(50% - 310px / 2);
+    margin-bottom: 55px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+    /* or 156% */
+
+    text-align: center;
+
+    /* Other Colors/Primary dark */
+
+    color: #2e3140;
+
+    mix-blend-mode: normal;
+}
+.sumra-verify-didntreceive {
+    display: block;
+    position: static;
+    width: 305px;
+    height: 22px;
+    left: calc(50% - 305px / 2);
+    top: 0px;
+    margin-bottom: 10px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height, or 147% */
+
+    text-align: center;
+
+    color: rgba(28, 25, 57, 0.8);
+}
+.sumra-verify-resend {
+    display: block;
+    position: static;
+    height: 22px;
+    top: 32px;
+    margin-left: 98px;
+    margin-bottom: 45px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+    /* identical to box height, or 129% */
+
+    text-decoration-line: underline;
+
+    /* #184E91 */
+
+    color: #184e91;
+}
+
 .auth-text {
     position: static;
     width: 265px;
@@ -141,7 +244,7 @@ button {
     position: relative;
     min-width: 100vw;
     height: 880px;
-    margin-top: 0px;
+    margin-top: -50px;
     background: linear-gradient(180deg, #e8f1ff 0%, #ffffff 100%);
     padding-top: 186px;
 }
@@ -224,11 +327,22 @@ button {
     height: 54px;
     margin-top: 12px;
     padding-bottom: 4px;
-    background: #fff;
     border: 2px solid #dbdbdb;
     box-sizing: border-box;
-    border-radius: 8px;
+
+    position: static;
+    width: 310px;
+    left: calc(50% - 310px / 2);
+    top: 41.05%;
+    bottom: 0%;
+
+    background: #ffffff;
+    /* Field shadow */
+
+    box-shadow: 0px 12px 25px rgba(138, 149, 158, 0.2);
+    border-radius: 7px;
 }
+
 .sumra-phone-fieldset legend {
     margin-left: 15px;
     padding: 0 5px;
@@ -247,12 +361,24 @@ button {
     outline: 0;
     border: 0;
     height: 19px;
-    font-family: "SF UI Display";
+
+    position: relative;
+    width: 160px;
+    height: 22px;
+    margin-left: calc(50% - 160px / 2 + 10px);
+
+    font-family: DM Sans;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: #202020;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height, or 147% */
+
+    /* Other Colors/Primary text */
+
+    color: #4c4e5a;
+
+    opacity: 0.5;
 }
 .sumra-phone-fieldset .PhoneInput .PhoneInputInput::placeholder {
     color: #8b8b8b;
@@ -366,6 +492,8 @@ button {
 
     background: linear-gradient(270deg, #eda416 0%, #e97819 100%);
     border-radius: 7px;
+    filter: drop-shadow(0px 10px 20px rgba(234, 123, 25, 0.1)),
+        drop-shadow(0px 10px 20px rgba(97, 105, 255, 0.1));
 }
 
 .sumra-Button:hover {
@@ -449,28 +577,31 @@ button {
 }
 .sumra-react-code-input {
     width: 100% !important;
+    margin-bottom: 45px;
 }
 .sumra-react-code-input > div[class^="styles_react-code-input"] {
     display: flex;
     justify-content: space-between;
 }
 .sumra-react-code-input > div[class^="styles_react-code-input"] input {
-    border: 2px solid #dbdbdb;
+    border: 2px solid #ffffff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 7px;
 }
 .sumra-react-code-input > div[class^="styles_react-code-input"] input:focus {
-    border: 2px solid #f8913a;
+    border: 2px solid #eda416;
 }
 .sumra-react-code-input
     > div[class^="styles_react-code-input"]
     input:first-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 .sumra-react-code-input
     > div[class^="styles_react-code-input"]
     input:last-child {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7p;
 }
 
 /** Styles for Sumra chat */
@@ -579,6 +710,30 @@ button {
     left: calc(50% - 310px / 2);
     top: 0px;
 }
+
+.h1-stitle {
+    position: relative;
+    width: 310px;
+    height: 36px;
+    margin-left: calc(50% - 210px / 2);
+    top: 0px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 28px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Other Colors/Primary dark */
+
+    color: #2e3140;
+}
+
 .sumra-auth-form.sumra-auth-login.sumra-auth-messengers {
     display: flex;
     flex-direction: column;

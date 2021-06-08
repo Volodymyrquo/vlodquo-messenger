@@ -75,7 +75,7 @@ export default class SumraWelcome extends React.PureComponent {
                         </div>
                         <div className="sumra-auth-form">
                             <section className="sumra-auth-login">
-                                <h1>Sign Up or Login</h1>
+                                <h1 className="h1-stitle">Sign Up or Login</h1>
                                 <h2>
                                     Start by using your <b> Messenger:</b>
                                 </h2>
@@ -91,15 +91,12 @@ export default class SumraWelcome extends React.PureComponent {
                                 </h2>
                                 <form>
                                     <fieldset className="sumra-phone-fieldset">
-                                        <legend>
-                                            Your mobile phone number
-                                        </legend>
-
                                         <PhoneInput
                                             flags={flags}
                                             placeholder="Enter phone number"
                                             value={this.state.phone}
                                             onChange={this._changePhoneNumber}
+                                            defaultCountry="US"
                                         />
 
                                         <div
@@ -117,6 +114,14 @@ export default class SumraWelcome extends React.PureComponent {
                                     <span>Login with Sumra ID</span>
                                 </a>
                             </section>
+                        </div>
+                        <div
+                            className="sumra-terms-privacy"
+                            style={{ top: "calc(100vh - 30px)" }}
+                        >
+                            By using either Sign Up or Login you agree to our
+                            <br />
+                            <a href="#">Terms & Privacy Policy.</a>
                         </div>
                     </div>
                 </AuthBody>

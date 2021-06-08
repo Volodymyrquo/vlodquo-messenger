@@ -41,12 +41,15 @@ export default class SumraWelcomePage extends Component {
      */
     render() {
         const LoginComponent = sdk.getComponent("auth.PasswordLogin");
+        const AuthBody = sdk.getComponent("auth.AuthBody");
+        const AuthPage = sdk.getComponent("views.auth.AuthPage");
 
         const { className } = this.props;
         const loginForm = className + " login-form";
         const { room } = this.state;
         const children = this.props.children;
         const getForm = () => {
+            debugger;
             switch (this.state.currentStep) {
                 case 1:
                     return (
@@ -88,15 +91,13 @@ export default class SumraWelcomePage extends Component {
             }
         };
         const form = getForm();
-
+        debugger;
         return (
-            <Fragment>
-                <header className="sumra-header">
-                    <div className="logotype"></div>
-                </header>
-                <main className="sumra-main color">{form}</main>
-                <footer className="sumra-footer"></footer>
-            </Fragment>
+            <AuthPage>
+                <AuthBody>
+                    <div>{form}</div>
+                </AuthBody>
+            </AuthPage>
         );
     }
 

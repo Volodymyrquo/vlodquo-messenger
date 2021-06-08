@@ -22,10 +22,6 @@ export default class AuthPage extends React.PureComponent {
 
     // cache the url as a static to prevent it changing without refreshing
     render() {
-        return (
-            <div className="sumra-main" style={{ marginTop: "-50px" }}>
-                {this.props.children}
-            </div>
-        );
+        return <div className="sumra-main">{this.props.children}</div>;
     }
 }

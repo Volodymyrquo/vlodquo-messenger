@@ -2,6 +2,9 @@ import React, { Component, createRef } from "react";
 import ReactCodeInput from "react-verification-code-input";
 import logout from "../../../../res/vector-icons/icon-logout.svg";
 import SumraUserCreateForm from "../../views/auth/SumraUserCreateForm";
+import logo from "../../../../res/images/sumra/logo.svg";
+import * as sdk from "matrix-react-sdk/src/index";
+
 /**
  * Sumra: Confirm code
  *
@@ -43,6 +46,8 @@ export default class SumraConfirmCodeForm extends Component {
      */
     render() {
         const { type, fieldWidth, fieldHeight, fields } = this.props;
+        const AuthBody = sdk.getComponent("auth.AuthBody");
+        const AuthPage = sdk.getComponent("views.auth.AuthPage");
 
         console.log(this.props);
 
@@ -53,38 +58,55 @@ export default class SumraConfirmCodeForm extends Component {
                         verificationCode={this.state.verificationCode}
                     />
                 ) : (
-                    <div className="sumra-main verification-code-form authentification-form">
-                        <h1 className="h1-title">Confirmation Access</h1>
+                    <AuthPage>
+                        <AuthBody>
+                            <div className="sumra-auth-logo">
+                                <img src={logo} alt="logo" />
+                            </div>
+                            <div className="sumra-verify-box">
+                                <h1 className="sumra-verify-title ">
+                                    Verify Account!
+                                </h1>
 
-                        <form>
-                            <h2 className="h2-label">
-                                Enter the six-digit verification code.
-                            </h2>
+                                <form>
+                                    <div className="sumra-verify-text ">
+                                        Enter 6 digit verification code we have
+                                        sent to <a href="#">+44 7788 554433</a>
+                                    </div>
 
-                            <ReactCodeInput
-                                className="sumra-react-code-input"
-                                ref={this.input}
-                                type={type}
-                                fieldWidth={fieldWidth}
-                                fieldHeight={fieldHeight}
-                                onChange={this._handleChange}
-                                onComplete={this._handleComplete}
-                            />
+                                    <ReactCodeInput
+                                        className="sumra-react-code-input"
+                                        ref={this.input}
+                                        type={type}
+                                        fieldWidth={fieldWidth}
+                                        fieldHeight={fieldHeight}
+                                        onChange={this._handleChange}
+                                        onComplete={this._handleComplete}
+                                    />
+                                    <div>
+                                        <span className="sumra-verify-didntreceive">
+                                            Didn't receive our code?
+                                        </span>
+                                        <span className="sumra-verify-resend">
+                                            Resend Code
+                                        </span>
+                                    </div>
 
-                            <button
-                                className="sumra-Button"
-                                onClick={this._submitVerificationCode}
-                            >
-                                <img
-                                    className="sumra-Button-icon-left"
-                                    src={logout}
-                                    width="18"
-                                />
-
-                                <span>Continue</span>
-                            </button>
-                        </form>
-                    </div>
+                                    <button
+                                        className="sumra-Button"
+                                        onClick={this._submitVerificationCode}
+                                    >
+                                        <span>Continue</span>
+                                    </button>
+                                </form>
+                            </div>
+                            <div className="sumra-terms-privacy">
+                                By using either Sign Up or Login you agree to
+                                our <br />
+                                <a href="#">Terms & Privacy Policy.</a>
+                            </div>
+                        </AuthBody>
+                    </AuthPage>
                 )}
             </>
         );

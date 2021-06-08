@@ -1,12 +1,12 @@
 /** Variables */
 /** Styles */
 
-/* @font-face {
-    font-family: DM sans;
-    src: url("./fonts/DMSans-Medium.ttf");
-    src: url("./fonts/DMSans-Regular.ttf");
-    src: url("./fonts/DMSans-Bold.ttf");
-} */
+@font-face {
+    font-family: "DM Sans";
+    src: url("../../../../res/fonts/DMSans-Medium.ttf");
+    src: url("../../../../res/fonts/DMSans-Regular.ttf");
+    src: url("../../../../res/fonts/DMSans-Bold.ttf");
+}
 ul {
     padding: 0px;
 }
@@ -43,7 +43,7 @@ button {
     height: 36px;
     margin-left: calc(50% - 310px / 2);
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 26px;
@@ -65,7 +65,7 @@ button {
     left: calc(50% - 310px / 2);
     margin-bottom: 35px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 26px;
@@ -105,7 +105,7 @@ button {
     left: calc(50% - 310px / 2);
     margin-bottom: 55px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -148,7 +148,7 @@ button {
     margin-left: 98px;
     margin-bottom: 45px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 17px;
@@ -169,7 +169,7 @@ button {
     left: calc(50% - 265px / 2);
     top: 61px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
@@ -251,7 +251,7 @@ button {
 .sumra-main .h1-title,
 .sumra-main .h2-subtitle,
 .sumra-main .h2-label {
-    font-family: "SF UI Display";
+    font-family: "DM Sans";
     font-style: normal;
     line-height: 100%;
     text-align: center;
@@ -287,7 +287,7 @@ button {
     line-height: 100%;
 }
 .sumra-main .h3-label {
-    font-family: "SF UI Display";
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -346,7 +346,7 @@ button {
 .sumra-phone-fieldset legend {
     margin-left: 15px;
     padding: 0 5px;
-    font-family: "SF UI Display";
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -363,11 +363,11 @@ button {
     height: 19px;
 
     position: relative;
-    width: 160px;
+    width: 180px;
     height: 22px;
-    margin-left: calc(50% - 160px / 2 + 10px);
+    margin-left: calc(50% - 180px / 2 + 10px);
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -413,7 +413,7 @@ button {
 .sumra-input-fieldset legend {
     margin-left: 15px;
     padding: 0 5px;
-    font-family: "SF UI Display";
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -426,7 +426,7 @@ button {
     outline: 0;
     border: 0;
     height: 19px;
-    font-family: "SF UI Display";
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -434,7 +434,7 @@ button {
     color: #202020;
 }
 .sumra-input-fieldset input::placeholder {
-    font-family: "SF UI Text";
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -555,7 +555,7 @@ button {
 .sumra-link-forgotPassword,
 .sumra-link-createUser {
     margin-top: 25px;
-    font-family: "SF UI Display";
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
@@ -662,7 +662,7 @@ button {
     left: calc(50% - 310px / 2);
     top: 0px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
@@ -683,7 +683,7 @@ button {
     left: calc(50% - 310px / 2);
     top: 71px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -718,7 +718,7 @@ button {
     margin-left: calc(50% - 210px / 2);
     top: 0px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
@@ -791,14 +791,14 @@ button {
 }
 .sutisfied-clients {
     position: relative;
-    width: 464px;
+    width: 484px;
     height: 32px;
-    left: calc(50% - 464px / 2);
+    left: calc(50% - 484px / 2);
     top: 650px;
 }
 
 .sutisfied-clients span {
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
@@ -817,7 +817,7 @@ button {
     left: calc(50% - 729px / 2);
     top: 682px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: italic;
     font-weight: 500;
     font-size: 18px;
@@ -833,12 +833,12 @@ button {
 
 .sumra-testimonials-author {
     position: relative;
-    width: 155px;
+    width: 175px;
     height: 23px;
-    left: calc(50% - 114px / 2);
+    left: calc(50% - 175px / 2);
     top: 702px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -854,7 +854,7 @@ button {
     left: calc(50% - 308px / 2);
     top: 45px;
 
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 13px;

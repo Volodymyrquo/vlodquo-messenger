@@ -36,6 +36,9 @@ export default class SumraWelcome extends React.PureComponent {
 
     constructor(props) {
         super(props);
+        this.state = {
+            phone: "",
+        };
 
         CountlyAnalytics.instance.track("onboarding_welcome");
         this.state = {
@@ -57,7 +60,7 @@ export default class SumraWelcome extends React.PureComponent {
             return (
                 <li key={index} onClick={this._goToVeryfycationCodePage}>
                     <a href={href} target="_blank" rel="noreferrer">
-                        <img src={v.image} width={46} alt="social links" />
+                        <img src={v.image} width={46} alt={v.title} />
                     </a>
                 </li>
             );
@@ -96,7 +99,6 @@ export default class SumraWelcome extends React.PureComponent {
                                             placeholder="Enter phone number"
                                             value={this.state.phone}
                                             onChange={this._changePhoneNumber}
-                                            defaultCountry="US"
                                         />
 
                                         <div
@@ -162,6 +164,7 @@ export default class SumraWelcome extends React.PureComponent {
      * @returns {void}
      */
     _submitPhoneNumber = (event) => {
+        debugger;
         event.preventDefault();
 
         let { phone } = this.state;
@@ -171,14 +174,15 @@ export default class SumraWelcome extends React.PureComponent {
         }
 
         phone = phone.replace("+", "");
+        this.setState({ phone });
 
-        makeFetch(END_POINTS.SEND_CODE, {
+        makeFetch("auth/v1/send-code", {
             phone_number: phone,
-            device_id: makeid(20),
+            app_uid: "chat.sumra.web",
         }).then(
             (response) => console.log,
             (error) => console.error
         );
-        this.props.onStep(2);
+        location.href = location.origin + "/#/register";
     };
 }

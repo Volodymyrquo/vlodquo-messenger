@@ -51,8 +51,17 @@ export default class SumraConfirmCodeForm extends Component {
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
         debugger;
         const href = localStorage.getItem("href");
-        const messenger = localStorage.getItem("messenger");
+        let messenger = localStorage.getItem("messenger");
         const isPhoneNumber = href[0] === "+" ? true : false;
+        const messengerLength = messenger.length;
+        isPhoneNumber
+            ? (messenger =
+                  messenger.substr(0, messengerLength - 10) +
+                  " " +
+                  messenger.substr(-10, 4) +
+                  " " +
+                  messenger.substr(-6, 6))
+            : messenger;
         return (
             <>
                 {this.state.verificationComplete ? (
@@ -72,7 +81,7 @@ export default class SumraConfirmCodeForm extends Component {
                                 <form>
                                     <div className="sumra-verify-text ">
                                         Enter 6 digit verification code we have
-                                        sent to
+                                        sent to &nbsp;
                                         {isPhoneNumber ? (
                                             <a
                                                 href="#"

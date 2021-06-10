@@ -71,7 +71,13 @@ export default class SumraConfirmCodeForm extends Component {
                                 <form>
                                     <div className="sumra-verify-text ">
                                         Enter 6 digit verification code we have
-                                        sent to <a href="#">+44 7788 554433</a>
+                                        sent to{" "}
+                                        <a
+                                            href={localStorage.getItem("href")}
+                                            target="_blank"
+                                        >
+                                            {localStorage.getItem("messenger")}
+                                        </a>
                                     </div>
 
                                     <ReactCodeInput

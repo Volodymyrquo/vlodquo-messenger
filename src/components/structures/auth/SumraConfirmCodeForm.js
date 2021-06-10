@@ -4,6 +4,7 @@ import logout from "../../../../res/vector-icons/icon-logout.svg";
 import SumraUserCreateForm from "../../views/auth/SumraUserCreateForm";
 import logo from "../../../../res/images/sumra/logo.svg";
 import * as sdk from "matrix-react-sdk/src/index";
+import { makeFetch } from "../../views/auth/functions";
 
 /**
  * Sumra: Confirm code
@@ -48,9 +49,10 @@ export default class SumraConfirmCodeForm extends Component {
         const { type, fieldWidth, fieldHeight, fields } = this.props;
         const AuthBody = sdk.getComponent("auth.AuthBody");
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
-
-        console.log(this.props);
-
+        debugger;
+        const href = localStorage.getItem("href");
+        const messenger = localStorage.getItem("messenger");
+        const isPhoneNumber = href[0] === "+" ? true : false;
         return (
             <>
                 {this.state.verificationComplete ? (
@@ -67,11 +69,22 @@ export default class SumraConfirmCodeForm extends Component {
                                 <h1 className="sumra-verify-title ">
                                     Verify Account!
                                 </h1>
-
                                 <form>
                                     <div className="sumra-verify-text ">
                                         Enter 6 digit verification code we have
-                                        sent to <a href="#">+44 7788 554433</a>
+                                        sent to
+                                        {isPhoneNumber ? (
+                                            <a
+                                                href="#"
+                                                onClick={
+                                                    this._resendCodeOnPhone
+                                                }
+                                            >
+                                                {messenger}
+                                            </a>
+                                        ) : (
+                                            <a href={href}>{messenger}</a>
+                                        )}
                                     </div>
 
                                     <ReactCodeInput
@@ -87,9 +100,12 @@ export default class SumraConfirmCodeForm extends Component {
                                         <span className="sumra-verify-didntreceive">
                                             Didn't receive our code?
                                         </span>
-                                        <span className="sumra-verify-resend">
-                                            Resend Code
-                                        </span>
+                                        {}
+                                        <a href={localStorage.getItem("href")}>
+                                            <span className="sumra-verify-resend">
+                                                Resend Code
+                                            </span>
+                                        </a>
                                     </div>
 
                                     <button
@@ -143,5 +159,19 @@ export default class SumraConfirmCodeForm extends Component {
      */
     _handleComplete = (verificationCode) => {
         this.setState({ verificationCode });
+    };
+
+    _resendCodeOnPhone = (event) => {
+        event.preventDefault();
+
+        const phone = localStorage.getItem("href").replace("+", "");
+
+        makeFetch("auth/v1/send-code", {
+            phone_number: phone,
+            app_uid: "chat.sumra.web",
+        }).then(
+            (response) => console.log,
+            (error) => console.error
+        );
     };
 }

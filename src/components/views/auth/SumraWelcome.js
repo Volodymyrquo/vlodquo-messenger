@@ -152,7 +152,11 @@ export default class SumraWelcome extends React.PureComponent {
     /**
      * _goToVeryfycationCodePage
      */
-    _goToVeryfycationCodePage = () => {
+    _goToVeryfycationCodePage = (e) => {
+        const messenger = e.target.alt;
+        const href = e.target.parentElement.href;
+        localStorage.setItem("messenger", messenger);
+        localStorage.setItem("href", href);
         location.href = location.origin + "/#/register";
     };
 
@@ -164,10 +168,11 @@ export default class SumraWelcome extends React.PureComponent {
      * @returns {void}
      */
     _submitPhoneNumber = (event) => {
-        debugger;
         event.preventDefault();
 
         let { phone } = this.state;
+        localStorage.setItem("messenger", phone);
+        localStorage.setItem("href", phone);
 
         if (!phone) {
             return;

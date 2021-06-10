@@ -164,7 +164,6 @@ export default class SumraWelcome extends React.PureComponent {
      * @returns {void}
      */
     _submitPhoneNumber = (event) => {
-        debugger;
         event.preventDefault();
 
         let { phone } = this.state;

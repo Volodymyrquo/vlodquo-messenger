@@ -17,8 +17,6 @@ limitations under the License.
 import React from "react";
 
 export default class AuthBody extends React.PureComponent {
-    static replaces = "AuthBody";
-
     render() {
         return <div>{this.props.children}</div>;
     }

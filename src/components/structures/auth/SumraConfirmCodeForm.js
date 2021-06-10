@@ -100,12 +100,24 @@ export default class SumraConfirmCodeForm extends Component {
                                         <span className="sumra-verify-didntreceive">
                                             Didn't receive our code?
                                         </span>
-                                        {}
-                                        <a href={localStorage.getItem("href")}>
-                                            <span className="sumra-verify-resend">
-                                                Resend Code
-                                            </span>
-                                        </a>
+                                        {isPhoneNumber ? (
+                                            <a
+                                                href="#"
+                                                onClick={
+                                                    this._resendCodeOnPhone
+                                                }
+                                            >
+                                                <span className="sumra-verify-resend">
+                                                    Resend Code
+                                                </span>
+                                            </a>
+                                        ) : (
+                                            <a href={href}>
+                                                <span className="sumra-verify-resend">
+                                                    Resend Code
+                                                </span>
+                                            </a>
+                                        )}
                                     </div>
 
                                     <button

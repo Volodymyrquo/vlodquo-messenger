@@ -17,6 +17,7 @@ limitations under the License.
 import React from "react";
 import * as sdk from "matrix-react-sdk/src/index";
 import { _td } from "matrix-react-sdk/src/languageHandler";
+import CountlyAnalytics from "matrix-react-sdk/src/CountlyAnalytics";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
@@ -26,8 +27,6 @@ import socialLinks from "./socialLinks";
 import send from "../../../../res/vector-icons/send.svg";
 import logo from "../../../../res/images/sumra/logo.svg";
 import WelcomeCarousel from "./WelcomeCarousel.jsx";
-import { ContextConsumer } from "../../../context/Context.jsx";
-import Welcome from "./Welcome.jsx";
 
 // translatable strings for Welcome pages
 _td("Sign in with SSO");
@@ -35,9 +34,37 @@ _td("Sign in with SSO");
 export default class SumraWelcome extends React.PureComponent {
     static replaces = "Welcome";
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            phone: "",
+        };
+
+        CountlyAnalytics.instance.track("onboarding_welcome");
+        this.state = {
+            phone: "",
+        };
+    }
+
     render() {
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
         const AuthBody = sdk.getComponent("auth.AuthBody");
+
+        const links = socialLinks.map((v, index) => {
+            let href = "";
+            if (isMobile) {
+                href = v.hrefMobile;
+            } else {
+                href = v.href;
+            }
+            return (
+                <li key={index} onClick={this._goToVeryfycationCodePage}>
+                    <a href={href} target="_blank" rel="noreferrer">
+                        <img src={v.image} width={46} alt={v.title} />
+                    </a>
+                </li>
+            );
+        });
 
         return (
             <AuthPage>
@@ -45,11 +72,60 @@ export default class SumraWelcome extends React.PureComponent {
                     <div className="sumra-welcome-carousel">
                         <WelcomeCarousel />
                     </div>
-                    <ContextConsumer>
-                        {(props) => {
-                            return <Welcome context={props} />;
-                        }}
-                    </ContextConsumer>
+                    <div className="sumra-welcome-main">
+                        <div className="sumra-auth-logo">
+                            <img src={logo} alt="logo" />
+                        </div>
+                        <div className="sumra-auth-form">
+                            <section className="sumra-auth-login">
+                                <h1 className="h1-stitle">Sign Up or Login</h1>
+                                <h2>
+                                    Start by using your <b> Messenger:</b>
+                                </h2>
+
+                                <ul className="sumra-auth-messengers">
+                                    {links}
+                                </ul>
+                            </section>
+                            <div className="sumra-line">or</div>
+                            <section>
+                                <h2>
+                                    Start by using your <b>Mobile phone</b>{" "}
+                                </h2>
+                                <form>
+                                    <fieldset className="sumra-phone-fieldset">
+                                        <PhoneInput
+                                            flags={flags}
+                                            placeholder="Enter phone number"
+                                            value={this.state.phone}
+                                            onChange={this._changePhoneNumber}
+                                        />
+
+                                        <div
+                                            className="sumra-phone-send"
+                                            onClick={this._submitPhoneNumber}
+                                        >
+                                            <img src={send} />
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </section>
+                            <section className="sumra-button-section">
+                                <div className="sumra-line">or</div>
+                                <a className="sumra-Button" href="/#/login">
+                                    <span>Login with Sumra ID</span>
+                                </a>
+                            </section>
+                        </div>
+                        <div
+                            className="sumra-terms-privacy"
+                            style={{ top: "calc(100vh - 30px)" }}
+                        >
+                            By using either Sign Up or Login you agree to our
+                            <br />
+                            <a href="#">Terms & Privacy Policy.</a>
+                        </div>
+                    </div>
                 </AuthBody>
             </AuthPage>
         );
@@ -76,11 +152,7 @@ export default class SumraWelcome extends React.PureComponent {
     /**
      * _goToVeryfycationCodePage
      */
-    _goToVeryfycationCodePage = (e) => {
-        const messenger = e.target.alt;
-        const href = e.target.parentElement.href;
-        localStorage.setItem("messenger", messenger);
-        localStorage.setItem("href", href);
+    _goToVeryfycationCodePage = () => {
         location.href = location.origin + "/#/register";
     };
 
@@ -95,8 +167,6 @@ export default class SumraWelcome extends React.PureComponent {
         event.preventDefault();
 
         let { phone } = this.state;
-        localStorage.setItem("messenger", phone);
-        localStorage.setItem("href", phone);
 
         if (!phone) {
             return;

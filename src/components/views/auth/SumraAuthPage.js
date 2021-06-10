@@ -16,17 +16,12 @@ limitations under the License.
 
 import React from "react";
 import "./SumraAuthPage.css";
-import { ContextProvider } from "../../../context/Context.jsx";
 
 export default class AuthPage extends React.PureComponent {
     static replaces = "AuthPage";
 
     // cache the url as a static to prevent it changing without refreshing
     render() {
-        return (
-            <ContextProvider>
-                <div className="sumra-main">{this.props.children}</div>
-            </ContextProvider>
-        );
+        return <div className="sumra-main">{this.props.children}</div>;
     }
 }

@@ -51,6 +51,7 @@ export default class SumraWelcome extends React.PureComponent {
         const AuthBody = sdk.getComponent("auth.AuthBody");
 
         const links = socialLinks.map((v, index) => {
+            debugger;
             let href = "";
             if (isMobile) {
                 href = v.hrefMobile;
@@ -153,7 +154,6 @@ export default class SumraWelcome extends React.PureComponent {
      * _goToVeryfycationCodePage
      */
     _goToVeryfycationCodePage = (e) => {
-        e.preventDefault();
         const messenger = e.target.alt;
         const href = e.target.parentElement.href;
         localStorage.setItem("messenger", messenger);

@@ -49,7 +49,6 @@ export default class SumraConfirmCodeForm extends Component {
         const { type, fieldWidth, fieldHeight, fields } = this.props;
         const AuthBody = sdk.getComponent("auth.AuthBody");
         const AuthPage = sdk.getComponent("views.auth.AuthPage");
-        debugger;
         const href = localStorage.getItem("href");
         let messenger = localStorage.getItem("messenger");
         const isPhoneNumber = href[0] === "+" ? true : false;

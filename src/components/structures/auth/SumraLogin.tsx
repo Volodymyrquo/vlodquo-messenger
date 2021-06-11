@@ -15,10 +15,7 @@ limitations under the License.
 */
 
 import React, {ReactNode} from 'react';
-import {MatrixError} from "matrix-js-sdk/src/http-api";
-
 import {_t, _td} from 'matrix-react-sdk/src/languageHandler';
-import * as sdk from 'matrix-react-sdk/src/index';
 import Login, {ISSOFlow, LoginFlow} from 'matrix-react-sdk/src/Login';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 import { messageForResourceLimitError } from 'matrix-react-sdk/src/utils/ErrorUtils';
@@ -31,6 +28,7 @@ import CountlyAnalytics from "matrix-react-sdk/src/CountlyAnalytics";
 import {IMatrixClientCreds} from "matrix-react-sdk/src/MatrixClientPeg";
 import SSOButtons from "../../views/elements/SSOButtons"
 import logo from "../../../../res/images/sumra/logo.svg"
+import * as sdk from "matrix-react-sdk/src/index";
 
 // These are used in several places, and come from the js-sdk's autodiscovery
 // stuff. We define them here so that they'll be picked up by i18n.

@@ -51,7 +51,6 @@ export default class SumraWelcome extends React.PureComponent {
         const AuthBody = sdk.getComponent("auth.AuthBody");
 
         const links = socialLinks.map((v, index) => {
-            debugger;
             let href = "";
             if (isMobile) {
                 href = v.hrefMobile;

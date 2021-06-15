@@ -117,7 +117,7 @@ export default class SumraUserCreateForm extends Component {
                             </button>
                         </form>
                     </div>
-                    <span>{username}</span>
+
                     <div className="sumra-terms-privacy">
                         By using either Sign Up or Login you agree to our <br />
                         <a href="#">Terms & Privacy Policy.</a>

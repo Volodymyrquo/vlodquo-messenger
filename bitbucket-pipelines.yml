@@ -14,7 +14,7 @@ pipelines:
           - webapp/**
     - step:
         name: Deploying the app to S3
-        #deployment: Staging
+        deployment: Staging
         script:
           - pipe: atlassian/aws-s3-deploy:0.5.0
             variables:
